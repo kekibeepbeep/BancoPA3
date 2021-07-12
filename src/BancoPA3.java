@@ -15,13 +15,21 @@ import javafx.stage.Stage;
  * @author diego
  */
 public class BancoPA3 extends Application {
-    
+    private MainBanco banco = new MainBanco();
+
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
-        
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Logging.fxml"));
+
+        Parent root = loader.load();
+
+        LoggingController controller = loader.getController();
+
         Scene scene = new Scene(root);
         
+
+        controller.setBanco(banco);
+        stage.setTitle("Banck");
         stage.setScene(scene);
         stage.show();
     }
