@@ -2,6 +2,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 class MainBanco {
+  SimuladorBanco sb = new SimuladorBanco();
   public void menu(int op) {
   
     //testlasesPAI();
@@ -15,7 +16,6 @@ class MainBanco {
     int opcion;
     boolean seguir = true;
 
-    SimuladorBanco sb = new SimuladorBanco();
     String nombre; // para guardar el nombre de un cliente
     int cedula;    // para guardar la cedula de un cliente
     int cedula2;    // para guardar la cedula de un cliente
@@ -33,7 +33,11 @@ class MainBanco {
     } catch (IOException e1) {
       e1.printStackTrace();
     }
-    
+    try {
+      sb.rescatar();
+    } catch (IOException e1) {
+      //handle error
+    }
     while (seguir) {
       System.out.print("\n? (0 para ayuda) ");
       opcion = in.nextInt();
@@ -300,6 +304,28 @@ class MainBanco {
     }    
   
   }
+
+public void agregarCliente(String nombre, int cedula){
+  
+  if (sb.agregarCliente(nombre, cedula)) {
+    System.out.println("Cliente " + nombre + " agregado.");
+    }
+  else {
+    System.out.println("No se pudo agregar al cliente " + nombre + ".");
+  }
+  sb.seriar();
+}
+public void simulaMes(){
+  sb.simulaMes();
+  sb.seriar();
+}
+public boolean verificaCedulaCliente(int numCedula){
+  cedula = numCedula;
+  if (sb.esCliente(cedula)) {return true;}
+  else {false;}
+  sb.seriar();
+}
+
 
 
 public static void testClasesPAI() {
