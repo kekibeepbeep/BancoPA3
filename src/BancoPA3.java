@@ -22,6 +22,7 @@ public class BancoPA3 extends Application {
         controller.setBanco(banco);
         stage.setTitle("Banck");
         stage.getIcons().add(new Image(getClass().getResourceAsStream("img/icon")));
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
     }

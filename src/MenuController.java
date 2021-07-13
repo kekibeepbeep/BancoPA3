@@ -42,6 +42,7 @@ public class MenuController implements Initializable {
             stage.initModality(Modality.WINDOW_MODAL);
             stage.setTitle("Bank");
             stage.getIcons().add(new Image(getClass().getResourceAsStream("img/icon")));
+            stage.setResizable(false);
             stage.setScene(scene);
             close(event);
             stage.show();
@@ -68,10 +69,9 @@ public class MenuController implements Initializable {
     public void setContent(ActionEvent event, String url){
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(url));
-            Node node = loader.load();
+            Node node = (Node)loader.load();
             LoggingController controller = loader.getController();
             controller.setBanco(banco);
-            //Node node = (Node)FXMLLoader.load(getClass().getResource(url));
             menuPane.getChildren().setAll(node);
         } catch (IOException e) {
             e.printStackTrace();

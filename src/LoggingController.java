@@ -40,6 +40,7 @@ public class LoggingController implements Initializable {
                 stage.initModality(Modality.WINDOW_MODAL);
                 stage.setTitle("Bank");
                 stage.getIcons().add(new Image(getClass().getResourceAsStream("img/icon")));
+                stage.setResizable(false);
                 stage.setScene(scene);
                 close(event);
                 stage.show();
@@ -68,6 +69,7 @@ public class LoggingController implements Initializable {
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setTitle("Bank");
             stage.getIcons().add(new Image(getClass().getResourceAsStream("img/icon")));
+            stage.setResizable(false);
             stage.setScene(scene);
             stage.showAndWait();
 
