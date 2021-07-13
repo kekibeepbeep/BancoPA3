@@ -11,6 +11,11 @@ public class SimuladorBanco {
   public SimuladorBanco() {
     clientes = new ArrayList<Cliente>();
     mesActual = 0;
+    try {
+      rescatar();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
   }
 
   public String toString() {
@@ -45,6 +50,11 @@ public class SimuladorBanco {
 
   public Cliente obtenerCliente(int cedula) {
     // revisamos si alguno de los clientes tiene la cedula
+    try {
+      rescatar();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
     Iterator<Cliente> it = clientes.iterator();
     while (it.hasNext()) {
       Cliente clie = it.next();
@@ -207,8 +217,15 @@ public class SimuladorBanco {
     System.out.println("El cliente solicitado no existe.");
     return -1;  //retorna -1 si no lo encuentra
   }
-  public void setClienteLoggeado(int id){
-    this.clienteLoggeado= obtenerCliente(id);
+  public boolean setClienteLoggeado(int id){
+    for (Cliente cliente : clientes) {
+      if(cliente.getId() ==  id){
+        this.clienteLoggeado = cliente;
+        return true;
+      }
+    }
+    this.clienteLoggeado = new Cliente("Cliente Fake", 000);
+    return false;
   } 
   public Cliente getClienteLoggeado() {
     return clienteLoggeado;

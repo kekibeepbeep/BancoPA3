@@ -23,7 +23,6 @@ public class LoggingController implements Initializable {
 
     @FXML private void handleIngresar(ActionEvent event) {
         if(banco.verificaClienteLogin(Integer.parseInt(id.getText().trim()), nombre.getText().trim())){
-            System.out.println("Di Positivo");
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Menu.fxml"));
 
             try {
@@ -35,6 +34,7 @@ public class LoggingController implements Initializable {
                 Stage stage = new Stage();
 
                 controller.setBanco(banco);
+                controller.setCliente(banco.getClienteMain());
 
                 stage.initModality(Modality.WINDOW_MODAL);
                 stage.setTitle("Bank");
@@ -43,14 +43,11 @@ public class LoggingController implements Initializable {
                 stage.show();
 
             } catch (IOException e) {
-                JOptionPane.showMessageDialog(null, "ERROR: 002"+e);
+                JOptionPane.showMessageDialog(null, "ERROR: 002\n"+e.getCause());
             }
 
 
-        }else{
-            System.out.println("Di negativo");
         }
-        System.out.println("Ingresar");
     }
     
     @FXML private void handleCrear(ActionEvent event){
@@ -74,8 +71,6 @@ public class LoggingController implements Initializable {
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "ERROR: 001\n"+e.getCause());
         }
-        
-        System.out.println("Crear");
     }
 
     //closer
