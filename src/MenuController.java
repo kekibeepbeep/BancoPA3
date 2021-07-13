@@ -67,7 +67,6 @@ public class MenuController implements Initializable {
             } catch (IOException e) {
                 JOptionPane.showMessageDialog(null, "ERROR: 006\n"+e.getCause());
             }
-            System.out.println("Tienes ctas");
         }else{
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("CtaViewNoCta.fxml"));

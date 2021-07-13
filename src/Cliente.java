@@ -4,7 +4,7 @@ import java.util.Iterator;
 
 /*
   Ya no se asumen los tipos numericos de cuenta.
-  */
+*/
 
 public class Cliente implements Serializable{
   protected String nombre;
