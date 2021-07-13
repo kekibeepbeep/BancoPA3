@@ -1,23 +1,23 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
-/**
- * FXML Controller class
- *
- * @author diego
- */
-public class MenuController implements Initializable {
 
-    /**
-     * Initializes the controller class.
-     */
+public class MenuController implements Initializable {
+    private MainBanco banco;
+
+
+    @FXML private void handleCerrar(ActionEvent event) {
+        //maneja cerrar
+    }
+    
+    public void setBanco(MainBanco banco){
+        this.banco = banco;
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
