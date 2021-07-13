@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class SimuladorBanco {
   ArrayList<Cliente> clientes;
   int mesActual;
+  private Cliente clienteLoggeado;
 
   public SimuladorBanco() {
     clientes = new ArrayList<Cliente>();
@@ -205,6 +206,13 @@ public class SimuladorBanco {
     }
     System.out.println("El cliente solicitado no existe.");
     return -1;  //retorna -1 si no lo encuentra
+  }
+  public void setClienteLoggeado(int id){
+    this.clienteLoggeado= obtenerCliente(id);
+  } 
+  public Cliente getClienteLoggeado() {
+    return clienteLoggeado;
+    
   }
 
 
