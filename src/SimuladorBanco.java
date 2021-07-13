@@ -11,6 +11,11 @@ public class SimuladorBanco {
   public SimuladorBanco() {
     clientes = new ArrayList<Cliente>();
     mesActual = 0;
+    try {
+      rescatar();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
   }
 
   public String toString() {

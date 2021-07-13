@@ -50,7 +50,6 @@ public class LoggingController implements Initializable {
         }else{
             System.out.println("Di negativo");
         }
-        System.out.println("Ingresar");
     }
     
     @FXML private void handleCrear(ActionEvent event){
