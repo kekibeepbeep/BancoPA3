@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Polyline?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="347.0" prefWidth="487.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TransferirCtaController">
+   <children>
+      <Polyline fill="CHARTREUSE" layoutX="294.0" layoutY="132.0" points="-294.0, -132.0, 193.0, -132.0, 193.0, 215.0, -294.0, 215.0" strokeType="INSIDE" />
+   </children>
+</AnchorPane>

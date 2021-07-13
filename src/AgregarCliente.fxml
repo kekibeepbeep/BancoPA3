@@ -5,13 +5,12 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="180.0" prefWidth="200.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/16" fx:controller="AgregarClienteController">
+<AnchorPane id="AnchorPane" prefHeight="180.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AgregarClienteController">
    <children>
       <TextField fx:id="nombre" layoutX="11.0" layoutY="39.0" />
       <TextField fx:id="id" layoutX="11.0" layoutY="99.0" onAction="#handleAgregar" />
-      <Label layoutX="11.0" layoutY="14.0" text="Nombre:" />
-      <Label layoutX="15.0" layoutY="73.0" text="ID (rut):" />
-      <Button fx:id="agregar" layoutX="131.0" layoutY="140.0" mnemonicParsing="false" onAction="#handleAgregar" text="Agregar" />
+      <Label layoutX="11.0" layoutY="14.0" text="Nombre:" textFill="#476072" />
+      <Label layoutX="15.0" layoutY="73.0" text="ID (rut):" textFill="#476072" />
+      <Button fx:id="agregar" layoutX="131.0" layoutY="140.0" mnemonicParsing="false" onAction="#handleAgregar" styleClass="backButton" stylesheets="@Styles.css" text="Agregar" textFill="#eeeeee" />
    </children>
 </AnchorPane>
