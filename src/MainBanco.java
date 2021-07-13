@@ -326,7 +326,10 @@ public boolean verificaCedulaCliente(int cedula){
 }
 public boolean verificaClienteLogin(int cedula, String nombre){
   if (sb.esCliente(cedula)) {
-    return sb.verificaNombre(cedula, nombre);
+    if (sb.verificaNombre(cedula, nombre)){
+      return true;
+    }
+    
   }
   return false;
 
@@ -370,6 +373,22 @@ public boolean borrarCtaCte(int cedula, int id){
   }
   return false;
 }
+public boolean borrarCtaDeAhorro(int cedula, double interesAhorro, int id){
+  if (sb.esCliente(cedula) && sb.borrarCuenta(cedula, id, CtaAhorro.class)) {
+    sb.seriar();
+    return true;
+  }
+  return false;
+  
+}
+public boolean cerrarCDT(int cedula,int idCDT, int idCtaCte){
+  if (sb.esCliente(cedula) && sb.cerrarCDT(cedula, idCDT, idCtaCte)) {
+    sb.seriar();
+    return true;
+  }
+  return false;
+}
+
 
 
 
