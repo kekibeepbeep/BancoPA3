@@ -424,7 +424,9 @@ class MainBanco {
     }
     return false;
   }
-  public ArrayList<Cuenta> getCtas(Cliente cliente){
+  public ArrayList<Cuenta> getCtas(Cliente cliente) throws IOException{
+    sb.rescatar();
+    System.out.println(cliente);
     ArrayList<Cuenta> cuentas = new ArrayList<Cuenta>();
     for (Cuenta cuenta : cliente.cuentas){
       if(cuenta.getClass().equals(CtaAhorro.class)){
@@ -433,7 +435,8 @@ class MainBanco {
     }
     return cuentas;
   }
-  public Cliente getClienteMain() {
+  public Cliente getClienteMain() throws IOException {
+    sb.rescatar();
     return sb.getClienteLoggeado();
   }
 }
