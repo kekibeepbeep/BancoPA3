@@ -8,12 +8,11 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="347.0" prefWidth="487.0" styleClass="backMenu" stylesheets="@Styles.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/16" fx:controller="CtaViewController">
+<AnchorPane id="AnchorPane" prefHeight="347.0" prefWidth="487.0" styleClass="backMenu" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CtaViewController">
    <children>
       <ComboBox fx:id="elegir" layoutX="34.0" layoutY="23.0" onAction="#handleMostrar" prefHeight="25.0" prefWidth="245.0" promptText="Elija Cuenta" styleClass="backButton" stylesheets="@Styles.css" />
       <Button fx:id="mostrar" layoutX="331.0" layoutY="23.0" mnemonicParsing="false" onAction="#handleMostrar" styleClass="backButton" stylesheets="@Styles.css" text="Mostrar" textFill="#eeeeee" />
-      <Label layoutX="156.0" layoutY="72.0" text="Datos De La Cuenta" textFill="#eeeeee">
+      <Label layoutX="114.0" layoutY="72.0" text="Datos De La Cuenta de Ahorro" textFill="#eeeeee">
          <font>
             <Font name="System Bold" size="19.0" />
          </font>
