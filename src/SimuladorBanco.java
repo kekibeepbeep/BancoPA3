@@ -50,6 +50,11 @@ public class SimuladorBanco {
 
   public Cliente obtenerCliente(int cedula) {
     // revisamos si alguno de los clientes tiene la cedula
+    try {
+      rescatar();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
     Iterator<Cliente> it = clientes.iterator();
     while (it.hasNext()) {
       Cliente clie = it.next();

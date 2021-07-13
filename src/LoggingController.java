@@ -35,6 +35,7 @@ public class LoggingController implements Initializable {
                 Stage stage = new Stage();
 
                 controller.setBanco(banco);
+                controller.setCliente(banco.getClienteMain());
 
                 stage.initModality(Modality.WINDOW_MODAL);
                 stage.setTitle("Bank");
@@ -43,7 +44,7 @@ public class LoggingController implements Initializable {
                 stage.show();
 
             } catch (IOException e) {
-                JOptionPane.showMessageDialog(null, "ERROR: 002"+e);
+                JOptionPane.showMessageDialog(null, "ERROR: 002\n"+e.getCause());
             }
 
 
