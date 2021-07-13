@@ -21,11 +21,10 @@ public class LoggingController implements Initializable {
     }
     
     @FXML private void handleCrear(ActionEvent event){
-
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("AgregarCliente.fxml"));
             
-            Parent root = loader.load();
+            Parent root = loader.load();//posible error aqui
 
             AgregarClienteController controller = loader.getController();
 
@@ -40,7 +39,7 @@ public class LoggingController implements Initializable {
             stage.showAndWait();
 
         } catch (IOException e) {
-            JOptionPane.showMessageDialog(null, "ERROR: 001\n"+e);
+            JOptionPane.showMessageDialog(null, "ERROR: 001\n"+e.getCause());
         }
         
         System.out.println("Crear");

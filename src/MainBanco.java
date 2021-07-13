@@ -319,11 +319,11 @@ public void simulaMes(){
   sb.simulaMes();
   sb.seriar();
 }
-public boolean verificaCedulaCliente(int numCedula){
-  cedula = numCedula;
-  if (sb.esCliente(cedula)) {return true;}
-  else {false;}
+public boolean verificaCedulaCliente(int cedula){
   sb.seriar();
+  if (sb.esCliente(cedula)) {return true;}
+  return false;
+  
 }
 
 
