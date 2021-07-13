@@ -24,7 +24,9 @@ public class Cliente implements Serializable{
   public int getId() {
     return numCedula;
   }
-
+  public String getNombre() {
+    return nombre;
+  }
   public int saldoTotal() {
     int total = 0; // variable auxiliar para contabilizar saldos
 

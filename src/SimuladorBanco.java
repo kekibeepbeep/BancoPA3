@@ -6,10 +6,16 @@ import java.util.Scanner;
 public class SimuladorBanco {
   ArrayList<Cliente> clientes;
   int mesActual;
+  private Cliente clienteLoggeado;
 
   public SimuladorBanco() {
     clientes = new ArrayList<Cliente>();
     mesActual = 0;
+    try {
+      rescatar();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
   }
 
   public String toString() {
@@ -44,6 +50,11 @@ public class SimuladorBanco {
 
   public Cliente obtenerCliente(int cedula) {
     // revisamos si alguno de los clientes tiene la cedula
+    try {
+      rescatar();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
     Iterator<Cliente> it = clientes.iterator();
     while (it.hasNext()) {
       Cliente clie = it.next();
@@ -56,6 +67,13 @@ public class SimuladorBanco {
 
   public boolean esCliente(int cedula) { // aprovechando el metodo obtenerCliente
     return obtenerCliente(cedula) != null;
+  }
+  public boolean verificaNombre(int cedula, String nombre) { // aprovechando el metodo obtenerCliente
+    Cliente cliente = obtenerCliente(cedula);
+    String nombreCliente = cliente.getNombre();
+    if (nombre.equals(nombreCliente)){return true;}
+    return false;
+
   }
 
   public boolean agregarCtaCte(int cedula) {
@@ -198,6 +216,20 @@ public class SimuladorBanco {
     }
     System.out.println("El cliente solicitado no existe.");
     return -1;  //retorna -1 si no lo encuentra
+  }
+  public boolean setClienteLoggeado(int id){
+    for (Cliente cliente : clientes) {
+      if(cliente.getId() ==  id){
+        this.clienteLoggeado = cliente;
+        return true;
+      }
+    }
+    this.clienteLoggeado = new Cliente("Cliente Fake", 000);
+    return false;
+  } 
+  public Cliente getClienteLoggeado() {
+    return clienteLoggeado;
+    
   }
 
 

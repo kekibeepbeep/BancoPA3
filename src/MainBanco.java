@@ -1,7 +1,9 @@
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 class MainBanco {
+  SimuladorBanco sb = new SimuladorBanco();
   public void menu(int op) {
   
     //testlasesPAI();
@@ -15,7 +17,6 @@ class MainBanco {
     int opcion;
     boolean seguir = true;
 
-    SimuladorBanco sb = new SimuladorBanco();
     String nombre; // para guardar el nombre de un cliente
     int cedula;    // para guardar la cedula de un cliente
     int cedula2;    // para guardar la cedula de un cliente
@@ -33,7 +34,11 @@ class MainBanco {
     } catch (IOException e1) {
       e1.printStackTrace();
     }
-    
+    try {
+      sb.rescatar();
+    } catch (IOException e1) {
+      //handle error
+    }
     while (seguir) {
       System.out.print("\n? (0 para ayuda) ");
       opcion = in.nextInt();
@@ -301,104 +306,134 @@ class MainBanco {
   
   }
 
-
-public static void testClasesPAI() {
-    System.out.println("Cuenta: (abstracta, no se puede instanciar)");
-    /*Cuenta cta0 = new Cuenta(0.0);
-    System.out.println(cta0);*/
-
-    System.out.println("Cuenta Corriente:");
-    Cuenta cta2 = new CtaCte();
-    System.out.println(cta2);
-    System.out.println("" + cta2.depositar(10) + cta2);
-    System.out.println("" + cta2.girar(10) + cta2);
-    System.out.println("" + cta2.girar(10) + cta2);
-    System.out.println("" + cta2.depositar(20) + cta2);
-
-    System.out.println("Cuenta Ahorro:");
-    double interesAhorro = 0.006;
-    Cuenta cta3 = new CtaAhorro(interesAhorro);
-    System.out.println(cta3);
-    System.out.println("" + cta3.depositar(1000) + cta3);
-    System.out.println("" + cta3.girar(100) + cta3);
-    System.out.println("" + cta3.depositar(200) + cta3);
-    cta3.calcInteres(); System.out.println("" + cta3);
-
-    System.out.println("CDT:");
-    Cuenta cta4 = new CDT(2*interesAhorro);
-    System.out.println("Primer deposito: " + cta4.depositar(500));
-    System.out.println("Segundo deposito: " + cta4.depositar(500));
-    System.out.println(cta4);
-    cta4.calcInteres(); System.out.println("" + cta4);
-    cta4.cerrar(cta3);
-    cta4.cerrar(cta2); System.out.println("" + cta4);
-    System.out.println("" + cta2 + "\n");
+  public void agregarCliente(String nombre, int cedula){
     
-    //System.out.println("probando instanceOf con clase base: " + (cta4 instanceof Cuenta));
-    //System.out.println("probando instanceOf con clase heredada: " + (cta4 instanceof CDT));
-    //System.out.println("probando instanceOf con interfaces: " + (cta4 instanceof Operaciones));
+    if (sb.agregarCliente(nombre, cedula)) {
+      System.out.println("Cliente " + nombre + " agregado.");
+      }
+    else {
+      System.out.println("No se pudo agregar al cliente " + nombre + ".");
+    }
+    sb.seriar();
+  }
+  public void simulaMes(){
+    sb.simulaMes();
+    sb.seriar();
+  }
+  public boolean verificaCedulaCliente(int cedula){
+    if (sb.esCliente(cedula)) {return true;}
+    return false;
 
-    System.out.println("cliente:");
-    Cliente cli1 = new Cliente("rapa", 123);
-    System.out.println(cli1);
+  }
+  public boolean verificaClienteLogin(int cedula, String nombre){
+    if (sb.esCliente(cedula)) {
+      if (sb.verificaNombre(cedula, nombre)){
+        sb.setClienteLoggeado(cedula);
+        return true;
+      }
+      
+    }
+    return false;
 
-    System.out.println("\ncta cte:");
-    cli1.agregarCtaCte();
-    System.out.println("Cuentas corrientes:" + cli1.listarCuentas(CtaCte.class));
-    cli1.borrarCuenta(1003, CDT.class);
-    cli1.borrarCuenta(1003, CtaAhorro.class);
-    cli1.borrarCuenta(1003, CtaCte.class);
-    cli1.agregarCtaCte();
-    cli1.deposito(500, 1004, CtaCte.class);
-    System.out.println(cli1);
-
-    System.out.println("\ncta ahorros:");
-    cli1.agregarCtaAhorro(interesAhorro);
-    System.out.println("Cuentas de ahorro:" + cli1.listarCuentas(CtaAhorro.class));
-    cli1.borrarCuenta(1005, CtaAhorro.class);
-    cli1.agregarCtaAhorro(interesAhorro);
-    cli1.deposito(250, 1006, CtaAhorro.class); System.out.println(cli1);
-    cli1.deposito(350, 1006, CtaAhorro.class); System.out.println(cli1);
-
-    System.out.println("\ncertificados:");
-    cli1.agregarCDT(400, 3*interesAhorro);
-    System.out.println("Certificados:" + cli1.listarCuentas(CDT.class));
-    System.out.println(cli1);
-    cli1.cerrarCDT(1007,1002);
-    cli1.cerrarCDT(1007,1006);
-    cli1.cerrarCDT(1007,1004);
-    System.out.println(cli1 + "\n");
-
-    System.out.println("\ngiros:");
-    cli1.giro(100, 1004, CtaCte.class);
-    cli1.giro(100, 1006, CtaAhorro.class);
-    System.out.println(cli1 + "\n");
-
-    cli1.simulaMes(); System.out.println(cli1 + "\n");
-    cli1.simulaMes(); System.out.println(cli1 + "\n");
-    cli1.simulaMes(); System.out.println(cli1 + "\n");
-    cli1.listarCuentas();
   }
 
-public static void test2FuncionesAdicionales( SimuladorBanco sb ){ //TEST kekes.. si ves esto eliminalo.
-  // prueba funciones
-  //1. borrar una cliene x cédula.
-  System.out.println("kekes pruebas, creando clientes de prueba...:");
-  sb.agregarCliente("pepito", 123);
-  sb.agregarCliente("juenito", 345);
-  sb.agregarCliente("prodiegus xd", 666);
-  sb.listarClientes();
-//se crearon arriba clientes y se prueba listar clientes
-  //sb.existeCliente(sb.clientes.get(2)); //funciona
-  
+  public boolean agregarCtaCte(int cedula){
+    
+    if (sb.esCliente(cedula)) {
+      if (sb.agregarCtaCte(cedula)) {
+        sb.seriar();
+        return true;
+      }
+    }
+    return false;
+  }
+  public boolean agregarCtaAhorro(int cedula, double interesAhorro){
+    if (sb.esCliente(cedula)) {
+      if (sb.agregarCtaAhorro(cedula, interesAhorro)) {
+        sb.seriar();
+        return true;
+      }
+    }
+    return false;
 
+  }
+  public boolean agregarCDT(int cedula, int monto, double interesCDT){
+    if (sb.esCliente(cedula)) {
+      if (sb.agregarCDT(cedula, monto, interesCDT)) {
+        sb.seriar();
+        return true;
+      }
+    }
+    return false;
+    
+  }
+  public boolean borrarCtaCte(int cedula, int id){
 
-
-
-
+    if (sb.esCliente(cedula) && sb.borrarCuenta(cedula, id, CtaCte.class)) {
+      sb.seriar();
+      return true;
+    }
+    return false;
+  }
+  public boolean borrarCtaDeAhorro(int cedula, double interesAhorro, int id){
+    if (sb.esCliente(cedula) && sb.borrarCuenta(cedula, id, CtaAhorro.class)) {
+      sb.seriar();
+      return true;
+    }
+    return false;
+    
+  }
+  public boolean cerrarCDT(int cedula,int idCDT, int idCtaCte){
+    if (sb.esCliente(cedula) && sb.cerrarCDT(cedula, idCDT, idCtaCte)) {
+      sb.seriar();
+      return true;
+    }
+    return false;
+  }
+  public boolean depositarMain(int cedula, int monto, int idDestino, int tipo){
+    Class<? extends Cuenta> clase;
+    switch(tipo) {
+      case 1: clase = CtaCte.class; break;
+      case 2: clase = CtaAhorro.class; break;
+      default: clase = null; break;
+    }
+    if (sb.esCliente(cedula) && sb.deposito(cedula, monto, idDestino, clase)) {
+      sb.seriar();
+      return true;
+    }
+    return false;
+    
+  }
+  public boolean girarMain(int cedula, int monto, int id, int tipo){
+    Class<? extends Cuenta> clase = (tipo==1)? CtaCte.class : ((tipo==2)? CtaAhorro.class:null);
+    if (sb.esCliente(cedula) && sb.giro(cedula, monto, id, clase)) {
+      sb.seriar();
+      return true;
+    }
+    return false;
+    
+  }
+  public boolean borrarClienteMain(int cedula){
+    Cliente clieAux = sb.obtenerCliente(cedula);
+    if(sb.existeCliente(clieAux) && clieAux.saldoTotal()==0){
+      Serializador s = new Serializador();
+      sb.clientes.remove(clieAux);
+      s.borrar(Integer.toString(clieAux.getId()));
+      sb.seriar();
+      return true;
+    }
+    return false;
+  }
+  public ArrayList<Cuenta> getCtas(Cliente cliente){
+    ArrayList<Cuenta> cuentas = new ArrayList<Cuenta>();
+    for (Cuenta cuenta : cliente.cuentas){
+      if(cuenta.getClass().equals(CtaAhorro.class)){
+        cuentas.add(cuenta);
+      }
+    }
+    return cuentas;
+  }
+  public Cliente getClienteMain() {
+    return sb.getClienteLoggeado();
+  }
 }
-
-
-
-}
-
