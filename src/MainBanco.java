@@ -320,11 +320,58 @@ public void simulaMes(){
   sb.seriar();
 }
 public boolean verificaCedulaCliente(int cedula){
-  sb.seriar();
   if (sb.esCliente(cedula)) {return true;}
+  return false;
+
+}
+public boolean verificaClienteLogin(int cedula, String nombre){
+  if (sb.esCliente(cedula)) {
+    return sb.verificaNombre(cedula, nombre);
+  }
+  return false;
+
+}
+
+public boolean agregarCtaCte(int cedula){
+  
+  if (sb.esCliente(cedula)) {
+    if (sb.agregarCtaCte(cedula)) {
+      sb.seriar();
+      return true;
+    }
+  }
+  return false;
+}
+public boolean agregarCtaAhorro(int cedula, double interesAhorro){
+  if (sb.esCliente(cedula)) {
+    if (sb.agregarCtaAhorro(cedula, interesAhorro)) {
+      sb.seriar();
+      return true;
+    }
+  }
+  return false;
+
+}
+public boolean agregarCDT(int cedula, int monto, double interesCDT){
+  if (sb.esCliente(cedula)) {
+    if (sb.agregarCDT(cedula, monto, interesCDT)) {
+      sb.seriar();
+      return true;
+    }
+  }
   return false;
   
 }
+public boolean borrarCtaCte(int cedula, int id){
+
+  if (sb.esCliente(cedula) && sb.borrarCuenta(cedula, id, CtaCte.class)) {
+    sb.seriar();
+    return true;
+  }
+  return false;
+}
+
+
 
 
 
