@@ -6,22 +6,23 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.effect.Reflection?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MenuController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="720.0" styleClass="backMenu" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MenuController">
    <children>
       <Pane layoutX="14.0" layoutY="12.0" prefHeight="374.0" prefWidth="487.0">
          <children>
-            <MenuBar fx:id="menu" layoutY="2.0" prefHeight="25.0" prefWidth="487.0">
+            <MenuBar fx:id="menu" layoutY="2.0" opacity="0.19" prefHeight="25.0" prefWidth="487.0" styleClass="back1" stylesheets="@Styles.css">
               <menus>
                 <Menu mnemonicParsing="false" text="Tanferir">
                      <items>
                         <Menu mnemonicParsing="false" text="Entre Mis Productos">
                           <items>
-                              <MenuItem mnemonicParsing="false" text="Cuenta De Ahorro" />
+                              <MenuItem mnemonicParsing="false" onAction="#handleCtaT" onMenuValidation="#handleCtaT" text="Cuenta De Ahorro" />
                             <MenuItem mnemonicParsing="false" text="Cuenta Corriente" />
                           </items>
                         </Menu>
@@ -64,6 +65,7 @@
                 </Menu>
               </menus>
             </MenuBar>
+            <AnchorPane fx:id="menuPane" layoutY="27.0" prefHeight="347.0" prefWidth="487.0" />
          </children>
       </Pane>
       <Pane layoutX="515.0" layoutY="13.0" prefHeight="374.0" prefWidth="191.0">
@@ -78,10 +80,13 @@
                   <Image url="@img/imagen.png" />
                </image>
             </ImageView>
-            <Label layoutX="14.0" layoutY="222.0" text="Bienvenido " />
-            <Label fx:id="nombre" layoutX="79.0" layoutY="222.0" prefHeight="17.0" prefWidth="119.0" />
-            <Label layoutX="24.0" layoutY="246.0" text="A tu sucursal virtual" />
-            <Button fx:id="cerrar" layoutX="39.0" layoutY="306.0" mnemonicParsing="false" onAction="#handleCerrar" prefHeight="25.0" prefWidth="129.0" text="Cerrar Sesión" />
+            <Label layoutX="14.0" layoutY="222.0" text="Bienvenido " textFill="#eeeeee" />
+            <Label fx:id="nombre" layoutX="79.0" layoutY="222.0" prefHeight="17.0" prefWidth="119.0" textFill="#eeeeee" />
+            <Label layoutX="24.0" layoutY="246.0" text="A tu sucursal virtual" textFill="#eeeeee" />
+            <Button fx:id="cerrar" layoutX="39.0" layoutY="306.0" mnemonicParsing="false" onAction="#handleCerrar" prefHeight="25.0" prefWidth="129.0" styleClass="backButton" stylesheets="@Styles.css" text="Cerrar Sesión" textFill="#eeeeee">
+               <effect>
+                  <Reflection fraction="0.47" topOpacity="0.36" />
+               </effect></Button>
          </children>
       </Pane>
    </children>

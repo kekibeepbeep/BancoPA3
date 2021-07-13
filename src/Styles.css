@@ -1,0 +1,21 @@
+.back1{
+    -fx-background-color: #EEEEEE;
+}
+.backButton{
+    -fx-text-decoration-color: #EEEEEE;
+    -fx-background-color: #548CA8;
+}
+.backLog{
+    -fx-background: linear-gradient(to bottom, #334257, #25253e);
+}
+.backMenu{
+    -fx-background-color: #25253e;
+}
+.backBar{
+    -fx-background-color: #334257;
+}
+.text-input{
+    -fx-highlight-fill: -fx-accent;
+    -fx-highlight-text-fill: white;
+    -fx-Prompt-text-fill: transparent;
+}

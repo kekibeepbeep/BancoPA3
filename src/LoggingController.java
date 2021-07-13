@@ -12,6 +12,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -38,6 +39,7 @@ public class LoggingController implements Initializable {
 
                 stage.initModality(Modality.WINDOW_MODAL);
                 stage.setTitle("Bank");
+                stage.getIcons().add(new Image(getClass().getResourceAsStream("img/icon")));
                 stage.setScene(scene);
                 close(event);
                 stage.show();
@@ -65,6 +67,7 @@ public class LoggingController implements Initializable {
 
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setTitle("Bank");
+            stage.getIcons().add(new Image(getClass().getResourceAsStream("img/icon")));
             stage.setScene(scene);
             stage.showAndWait();
 
