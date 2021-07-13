@@ -327,6 +327,7 @@ public boolean verificaCedulaCliente(int cedula){
 public boolean verificaClienteLogin(int cedula, String nombre){
   if (sb.esCliente(cedula)) {
     if (sb.verificaNombre(cedula, nombre)){
+      sb.setClienteLoggeado(cedula);
       return true;
     }
     
@@ -388,7 +389,43 @@ public boolean cerrarCDT(int cedula,int idCDT, int idCtaCte){
   }
   return false;
 }
-
+public boolean depositar(int cedula, int monto, int idDestino, int tipo){
+  Class<? extends Cuenta> clase;
+  switch(tipo) {
+    case 1: clase = CtaCte.class; break;
+    case 2: clase = CtaAhorro.class; break;
+    default: clase = null; break;
+  }
+  if (sb.esCliente(cedula) && sb.deposito(cedula, monto, idDestino, clase)) {
+    sb.seriar();
+    return true;
+  }
+  return false;
+  
+}
+public boolean girar(int cedula, int monto, int id, int tipo){
+  Class<? extends Cuenta> clase = (tipo==1)? CtaCte.class : ((tipo==2)? CtaAhorro.class:null);
+  if (sb.esCliente(cedula) && sb.giro(cedula, monto, id, clase)) {
+    sb.seriar();
+    return true;
+  }
+  return false;
+  
+}
+public boolean borrarCliente(int cedula){
+  Cliente clieAux = sb.obtenerCliente(cedula);
+  if(sb.existeCliente(clieAux) && clieAux.saldoTotal()==0){
+    Serializador s = new Serializador();
+    sb.clientes.remove(clieAux);
+    s.borrar(Integer.toString(clieAux.getId()));
+    sb.seriar();
+    return true;
+  }
+  return false;
+}
+public Cliente getCliente() {
+  return sb.getClienteLoggeado();
+}
 
 
 
