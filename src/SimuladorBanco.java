@@ -158,9 +158,7 @@ public class SimuladorBanco {
  
   public void rescatar() throws IOException{
     Serializador s = new Serializador();
-    clientes.addAll(s.cargarDataBase());
-
-   
+    clientes = s.cargarDataBase();
   }
   public void listarClientes() { //lista clientes del banco hecha para fines de testeo.
     for (int i=0;i<clientes.size();i++) {

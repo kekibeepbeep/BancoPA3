@@ -23,7 +23,7 @@ public class MenuController implements Initializable {
     @FXML private Label nombre;
     @FXML private AnchorPane menuPane;
 
-    protected MainBanco banco;
+    private MainBanco banco;
 
     private Cliente cliente;
 
@@ -53,16 +53,27 @@ public class MenuController implements Initializable {
         }
 
     }
-    @FXML private void handleCtaView(ActionEvent event) {
+    @FXML private void handleCtaView(ActionEvent event) throws IOException {
+        banco.sb.rescatar();
         ArrayList<Cuenta> cuentas = banco.getCtas(cliente);
         if(!cuentas.isEmpty()){
-            System.out.println("Tiene Cuentas de Ahorro");
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("CtaView.fxml"));
+                Node node = loader.load();
+                CtaViewController controller = loader.getController();
+                controller.setBanco(banco);
+                controller.setCliente(cliente);
+                menuPane.getChildren().setAll(node);
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(null, "ERROR: 006\n"+e.getCause());
+            }
         }else{
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("CtaViewNoCta.fxml"));
                 Node node = loader.load();
                 CtaViewNoCtaController controller = loader.getController();
                 controller.setBanco(banco);
+                controller.setCliente(cliente);
                 menuPane.getChildren().setAll(node);
             } catch (IOException e) {
                 JOptionPane.showMessageDialog(null, "ERROR: 004\n"+e.getCause());
@@ -79,16 +90,6 @@ public class MenuController implements Initializable {
             menuPane.getChildren().setAll(node);
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "ERROR: 005\n"+e.getCause());
-        } 
-    }
-
-    protected void setAddCta(){
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("AgregarCta.fxml"));
-            Node node = loader.load();
-            menuPane.getChildren().setAll(node);
-        } catch (IOException e) {
-            JOptionPane.showMessageDialog(null, "ERROR: 006\n"+e.getCause());
         } 
     }
     public void setBanco(MainBanco banco){

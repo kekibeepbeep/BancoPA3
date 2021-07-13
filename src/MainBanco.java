@@ -4,10 +4,10 @@ import java.util.Scanner;
 
 class MainBanco {
   SimuladorBanco sb = new SimuladorBanco();
-  public void menu(int op) {
+  public static void main(String[] args) {
   
-    //testlasesPAI();
-
+    //testlasesPAI();4
+    SimuladorBanco sb = new SimuladorBanco();
     System.out.println("Problema del Simulador Bancario, version con Polimorfismo, clases Abstractas e Interfases");
 
     //System.out.println("la multiplicacion de 6000 y 0.015 es " + 6000*0.015);
@@ -42,7 +42,7 @@ class MainBanco {
     while (seguir) {
       System.out.print("\n? (0 para ayuda) ");
       opcion = in.nextInt();
-      switch (op) {
+      switch (opcion) {
 
         case 0:
           System.out.print(
@@ -424,7 +424,9 @@ class MainBanco {
     }
     return false;
   }
-  public ArrayList<Cuenta> getCtas(Cliente cliente){
+  public ArrayList<Cuenta> getCtas(Cliente cliente) throws IOException{
+    sb.rescatar();
+    System.out.println(cliente);
     ArrayList<Cuenta> cuentas = new ArrayList<Cuenta>();
     for (Cuenta cuenta : cliente.cuentas){
       if(cuenta.getClass().equals(CtaAhorro.class)){
@@ -433,7 +435,8 @@ class MainBanco {
     }
     return cuentas;
   }
-  public Cliente getClienteMain() {
+  public Cliente getClienteMain() throws IOException {
+    sb.rescatar();
     return sb.getClienteLoggeado();
   }
 }
