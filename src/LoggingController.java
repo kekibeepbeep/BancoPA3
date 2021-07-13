@@ -23,7 +23,7 @@ public class LoggingController implements Initializable {
 
     @FXML private void handleIngresar(ActionEvent event) {
         if(banco.verificaClienteLogin(Integer.parseInt(id.getText().trim()), nombre.getText().trim())){
-            System.out.println("Di verdadero");
+            System.out.println("Di Positivo");
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Menu.fxml"));
 
             try {
