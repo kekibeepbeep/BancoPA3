@@ -40,21 +40,9 @@
                 </Menu>
                 <Menu mnemonicParsing="false" text="Mis Productos">
                   <items>
-                        <MenuItem mnemonicParsing="false" text="Cuenta Ahorro">
-                           <graphic>
-                              <ComboBox prefWidth="150.0" promptText="Elegir Cuenta" />
-                           </graphic>
-                        </MenuItem>
-                        <MenuItem mnemonicParsing="false" text="Cuenta Corriente">
-                           <graphic>
-                              <ComboBox prefWidth="150.0" promptText="Elegir Cuenta" />
-                           </graphic>
-                        </MenuItem>
-                    <MenuItem mnemonicParsing="false" text="CDT">
-                           <graphic>
-                              <ComboBox prefWidth="150.0" promptText="Elegir Cuenta" />
-                           </graphic>
-                        </MenuItem>
+                        <MenuItem fx:id="ctaView" mnemonicParsing="false" onAction="#handleCtaView" onMenuValidation="#handleCtaView" text="Cuenta Ahorro" />
+                        <MenuItem mnemonicParsing="false" text="Cuenta Corriente" />
+                    <MenuItem mnemonicParsing="false" text="CDT" />
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Mis Destinatarios">

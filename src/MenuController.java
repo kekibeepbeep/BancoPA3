@@ -1,5 +1,6 @@
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javax.swing.JOptionPane;
@@ -22,7 +23,7 @@ public class MenuController implements Initializable {
     @FXML private Label nombre;
     @FXML private AnchorPane menuPane;
 
-    private MainBanco banco;
+    protected MainBanco banco;
 
     private Cliente cliente;
 
@@ -52,11 +53,44 @@ public class MenuController implements Initializable {
         }
 
     }
-    
-    @FXML private void handleCtaT(ActionEvent event){
-        setContent(event, "Logging.fxml");
+    @FXML private void handleCtaView(ActionEvent event) {
+        ArrayList<Cuenta> cuentas = banco.getCtas(cliente);
+        if(!cuentas.isEmpty()){
+            System.out.println("Tiene Cuentas de Ahorro");
+        }else{
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("CtaViewNoCta.fxml"));
+                Node node = loader.load();
+                CtaViewNoCtaController controller = loader.getController();
+                controller.setBanco(banco);
+                menuPane.getChildren().setAll(node);
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(null, "ERROR: 004\n"+e.getCause());
+            }
+        }
     }
 
+    @FXML private void handleCtaT(ActionEvent event){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("TransferirCta.fxml"));
+            Node node = loader.load();
+            TransferirCtaController controller = loader.getController();
+            controller.setBanco(banco);
+            menuPane.getChildren().setAll(node);
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "ERROR: 005\n"+e.getCause());
+        } 
+    }
+
+    protected void setAddCta(){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("AgregarCta.fxml"));
+            Node node = loader.load();
+            menuPane.getChildren().setAll(node);
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "ERROR: 006\n"+e.getCause());
+        } 
+    }
     public void setBanco(MainBanco banco){
         this.banco = banco;
     }
@@ -64,18 +98,6 @@ public class MenuController implements Initializable {
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
         nombre.setText(this.cliente.getNombre());
-    }
-    
-    public void setContent(ActionEvent event, String url){
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(url));
-            Node node = (Node)loader.load();
-            LoggingController controller = loader.getController();
-            controller.setBanco(banco);
-            menuPane.getChildren().setAll(node);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     //closer

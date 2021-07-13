@@ -15,8 +15,8 @@
    <children>
       <Pane layoutX="25.0" layoutY="26.0" prefHeight="348.0" prefWidth="264.0">
          <children>
-            <TextField fx:id="nombre" layoutX="21.0" layoutY="87.0" opacity="0.25" prefHeight="25.0" prefWidth="202.0" styleClass="backButton" stylesheets="@Styles.css" />
-            <TextField fx:id="id" layoutX="21.0" layoutY="149.0" onAction="#handleIngresar" opacity="0.25" prefHeight="25.0" prefWidth="202.0" styleClass="backButton" stylesheets="@Styles.css" />
+            <TextField fx:id="nombre" layoutX="21.0" layoutY="87.0" prefHeight="25.0" prefWidth="202.0" styleClass="backButton2" stylesheets="@Styles.css" />
+            <TextField fx:id="id" layoutX="21.0" layoutY="149.0" onAction="#handleIngresar" prefHeight="25.0" prefWidth="202.0" styleClass="backButton2" stylesheets="@Styles.css" />
             <Line endX="121.0" fill="#548ca8" layoutX="122.0" layoutY="46.0" opacity="0.25" startX="-100.0" stroke="#548ca8" />
             <Line endX="123.0" fill="#548ca8" layoutX="122.0" layoutY="255.0" opacity="0.25" smooth="false" startX="-100.0" stroke="#548ca8" />
             <Label layoutX="24.0" layoutY="14.0" text="Iniciar sesión" textFill="#eeeeee">
