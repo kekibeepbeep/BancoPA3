@@ -60,7 +60,7 @@ public class SimuladorBanco {
   public boolean verificaNombre(int cedula, String nombre) { // aprovechando el metodo obtenerCliente
     Cliente cliente = obtenerCliente(cedula);
     String nombreCliente = cliente.getNombre();
-    if (nombre == nombreCliente){return true;}
+    if (nombre.equals(nombreCliente)){return true;}
     return false;
 
   }
