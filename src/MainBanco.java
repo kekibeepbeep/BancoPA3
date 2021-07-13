@@ -389,7 +389,7 @@ public boolean cerrarCDT(int cedula,int idCDT, int idCtaCte){
   }
   return false;
 }
-public boolean depositar(int cedula, int monto, int idDestino, int tipo){
+public boolean depositarMain(int cedula, int monto, int idDestino, int tipo){
   Class<? extends Cuenta> clase;
   switch(tipo) {
     case 1: clase = CtaCte.class; break;
@@ -403,7 +403,7 @@ public boolean depositar(int cedula, int monto, int idDestino, int tipo){
   return false;
   
 }
-public boolean girar(int cedula, int monto, int id, int tipo){
+public boolean girarMain(int cedula, int monto, int id, int tipo){
   Class<? extends Cuenta> clase = (tipo==1)? CtaCte.class : ((tipo==2)? CtaAhorro.class:null);
   if (sb.esCliente(cedula) && sb.giro(cedula, monto, id, clase)) {
     sb.seriar();
@@ -412,7 +412,7 @@ public boolean girar(int cedula, int monto, int id, int tipo){
   return false;
   
 }
-public boolean borrarCliente(int cedula){
+public boolean borrarClienteMain(int cedula){
   Cliente clieAux = sb.obtenerCliente(cedula);
   if(sb.existeCliente(clieAux) && clieAux.saldoTotal()==0){
     Serializador s = new Serializador();
@@ -426,6 +426,29 @@ public boolean borrarCliente(int cedula){
 public Cliente getCliente() {
   return sb.getClienteLoggeado();
 }
+public boolean agregarDestinatarioMain(Cliente clieAux,Cliente clieAux2){
+  if(sb.existeCliente(clieAux) && sb.existeCliente(clieAux2)){ 
+    sb.clientes.get(sb.getPosCliente(clieAux)).agregaDestinatario(clieAux2);
+    sb.seriar();
+    return true;
+  }
+  return false;
+}
+public boolean borrarDestinatarioMain(Cliente clieAux, Cliente clieAux2){
+  if(sb.existeCliente(clieAux) && sb.existeCliente(clieAux2)){
+    sb.clientes.get(sb.getPosCliente(clieAux)).borrarDestinatario(clieAux2);
+    sb.seriar();
+  }
+  return false;
+}
+public boolean transferencia(Cliente clieAux, int id){
+  if(sb.depositar(clieAux.getId(), id)){
+    sb.seriar();
+    return true;
+  }
+  return false;
+}
+
 
 
 
