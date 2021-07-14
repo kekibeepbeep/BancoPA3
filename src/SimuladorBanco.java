@@ -196,9 +196,10 @@ public class SimuladorBanco {
     }
     return false;
   }
-  public boolean existeCliente(Cliente cliente){ //verifica si existe un cliente
-    for (int i=0;i<clientes.size();i++) {
-      if (cliente == clientes.get(i)){
+  public boolean existeCliente(Cliente clienteTest){ //verifica si existe un cliente
+    for (Cliente cliente : clientes) {
+      System.out.println(cliente);
+      if (cliente.getId() == clienteTest.getId()){
         return true;
       }   
     }

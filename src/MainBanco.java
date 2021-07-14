@@ -374,7 +374,7 @@ class MainBanco {
     if(sb.existeCliente(cliente) && sb.existeCliente(clieAux)){ //verifica que ambos cliente existan
       /*Agrega clieAux2 a agendaDestinatarios de clieAux que se encuentra en array
       clientes dentro del simulador bancario */
-      sb.clientes.get(sb.getPosCliente(cliente)).agregaDestinatario(clieAux);
+      cliente.agregaDestinatario(clieAux);
     }
     sb.seriar();
   }
