@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="347.0" prefWidth="487.0" styleClass="backMenu" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CtaViewNoCtaController">
+<AnchorPane id="AnchorPane" prefHeight="347.0" prefWidth="487.0" styleClass="backMenu" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CtcViewNoCtcController">
    <children>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="24.0" layoutY="87.0" prefHeight="34.0" prefWidth="437.0" text="No Posees una Cuenta Corriente" textAlignment="CENTER" textFill="#eeeeee">
          <font>

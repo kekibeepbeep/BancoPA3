@@ -41,7 +41,7 @@
                 <Menu mnemonicParsing="false" text="Mis Productos">
                   <items>
                         <MenuItem fx:id="ctaView" mnemonicParsing="false" onAction="#handleCtaView" onMenuValidation="#handleCtaView" text="Cuenta Ahorro" />
-                        <MenuItem mnemonicParsing="false" text="Cuenta Corriente" />
+                        <MenuItem fx:id="CtcView" mnemonicParsing="false" onAction="#handleCtcView" text="Cuenta Corriente" />
                     <MenuItem mnemonicParsing="false" text="CDT" />
                   </items>
                 </Menu>

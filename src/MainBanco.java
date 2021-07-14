@@ -434,6 +434,17 @@ class MainBanco {
     }
     return cuentas;
   }
+
+  public ArrayList<Cuenta> getCtcs(Cliente cliente) throws IOException {
+    sb.rescatar();
+    ArrayList<Cuenta> cuentas = new ArrayList<Cuenta>();
+    for (Cuenta cuenta : cliente.cuentas){
+      if(cuenta.getClass().equals(CtaCte.class)){
+        cuentas.add(cuenta);
+      }
+    }
+    return cuentas;
+  }
   public Cliente getClienteMain() throws IOException {
     sb.rescatar();
     return sb.getClienteLoggeado();
