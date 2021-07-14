@@ -282,10 +282,7 @@ class MainBanco {
           clieAux= sb.obtenerCliente(in.nextInt()); //dueño de la agenda destino
           System.out.print("Indica el id del cliente destino: ");
           id = in.nextInt(); //cliente a agregar a la agenda destino
-          if(sb.depositar(clieAux.getId(), id))
-            System.out.println("Deposito exitoso");
-          else
-            System.err.println("Deposito fallido verificar datos ingresados");
+          
           break;
         case 18:
           sb.seriar(); 
@@ -417,9 +414,9 @@ class MainBanco {
     return false;
     
   }
-  public void depositoTerceros(Cuenta owner, Cuenta destiny, int monto) {
-    destiny.depositar(monto);
-    owner.girar(monto);
+  public void depositoTerceros(Cliente cliente1, Cliente cliente2, Cuenta owner, Cuenta destiny, int monto) {
+    sb.depositar(cliente1.getId(), cliente2.getId(), owner.getId(), destiny.getId(), monto);
+    
     sb.seriar();
   }
   public boolean girarMain(int cedula, int monto, int id, int tipo){

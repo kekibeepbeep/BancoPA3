@@ -21,7 +21,7 @@ public class TransferirDestinatarioController implements Initializable {
 
     @FXML private void handleTransferir(ActionEvent event) {
         //manipular el boton para hacer efectiva la transferencia
-        banco.depositoTerceros(cuentasLocales.getValue(), cuentas.getValue(), Integer.parseInt(monto.getText().trim()));
+        banco.depositoTerceros(cliente, destinatarios.getValue(),cuentasLocales.getValue(), cuentas.getValue(), Integer.parseInt(monto.getText().trim()));
         JOptionPane.showMessageDialog(null, "Para Validar Su Identidad\nCierre y abra sesion por favor\nDe lo contrario no se mostraran los cambios");
     }
     @FXML private void setCuentasDestino(ActionEvent event) {
