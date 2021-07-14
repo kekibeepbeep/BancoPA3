@@ -18,7 +18,7 @@
          <children>
             <MenuBar fx:id="menu" layoutY="2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="487.0" styleClass="backButton" stylesheets="@Styles.css">
               <menus>
-                <Menu mnemonicParsing="false" text="Tanferir">
+                <Menu mnemonicParsing="false" text="Transferir">
                      <items>
                         <MenuItem mnemonicParsing="false" text="Por Mi Agenda Destinatarios" />
                         <Menu mnemonicParsing="false" text="Entre Mis Productos">
@@ -38,8 +38,6 @@
                 </Menu>
                 <Menu mnemonicParsing="false" text="Mis Destinatarios">
                   <items>
-                        <MenuItem mnemonicParsing="false" text="Eliminar" />
-                    <MenuItem mnemonicParsing="false" text="Agregar" />
                         <MenuItem mnemonicParsing="false" text="Ver" />
                   </items>
                 </Menu>
