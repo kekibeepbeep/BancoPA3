@@ -440,10 +440,11 @@ class MainBanco {
   public Cliente borrarDestinatario(Cliente cliente, int removeId) {
     for (Cliente aux : sb.clientes) {
       if(aux.getId() == removeId){
-        cliente.agendaDestinatarios.remove(aux);
+        System.out.println("Voy a borrar a: "+aux);
+        cliente.borrarDestinatario(aux);
       }
     }
-    System.out.println(cliente.getAgenda());
+    System.out.println(cliente.agendaDestinatarios);
     sb.seriar();
     return cliente;
   }

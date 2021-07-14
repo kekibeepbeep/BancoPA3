@@ -7,17 +7,18 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="347.0" prefWidth="487.0" styleClass="backMenu" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TransferirCtaController">
+<AnchorPane id="AnchorPane" prefHeight="347.0" prefWidth="487.0" styleClass="backMenu" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TransferirCtaController">
    <children>
-      <ComboBox layoutX="46.0" layoutY="135.0" prefHeight="25.0" prefWidth="279.0" />
-      <TextField layoutX="46.0" layoutY="194.0" prefHeight="25.0" prefWidth="279.0" />
-      <Button layoutX="260.0" layoutY="262.0" mnemonicParsing="false" styleClass="backButton" stylesheets="@Styles.css" text="Transferir" textFill="#eeeeee" />
-      <Text fill="#eeeeee" layoutX="46.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trasferir a su Cuenta de Ahorro.">
+      <ComboBox fx:id="cuentas" layoutX="46.0" layoutY="135.0" prefHeight="25.0" prefWidth="279.0" />
+      <TextField fx:id="monto" layoutX="46.0" layoutY="194.0" prefHeight="25.0" prefWidth="279.0" />
+      <Button layoutX="260.0" layoutY="262.0" mnemonicParsing="false" onAction="#handleTransferir" styleClass="backButton" stylesheets="@Styles.css" text="Transferir" textFill="#eeeeee" />
+      <Text fill="#eeeeee" layoutX="46.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trasferir/Girar a su Cuenta de Ahorro.">
          <font>
             <Font size="24.0" />
          </font>
       </Text>
-      <Text fill="#eeeeee" layoutX="46.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Seleccione su Cuenta de Ahorro destino." />
-      <Text fill="#eeeeee" layoutX="46.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Monto a trasferir" />
+      <Text fill="#eeeeee" layoutX="46.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Seleccione su Cuenta de Ahorro:" />
+      <Text fill="#eeeeee" layoutX="46.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Monto:" />
+      <Button layoutX="46.0" layoutY="262.0" mnemonicParsing="false" onAction="#handleGirar" prefHeight="25.0" prefWidth="66.0" styleClass="backButton" stylesheets="@Styles.css" text="Girar" textFill="#eeeeee" />
    </children>
 </AnchorPane>

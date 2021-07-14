@@ -24,7 +24,7 @@ public class VerDestinatarioController implements Initializable {
 
     
     @FXML private void handleBorrar(ActionEvent event){
-        cliente = banco.borrarDestinatario(cliente, Integer.parseInt(idDestino.getText().trim()));
+        this.cliente = banco.borrarDestinatario(cliente, Integer.parseInt(idDestino.getText().trim()));
         setTableContent();
     }
     @FXML private void handleAgregar(ActionEvent event){

@@ -205,7 +205,6 @@ public class Cliente implements Serializable{
   public boolean agregaDestinatario(Cliente agregado){ //agrega un destinatario a la agenda del cliente
     if(obtenerClienteAgenda(agregado.getId()) == null){ //si el cliente a agregar no existe en la agenda se agrega ella.
       agendaDestinatarios.add(agregado);
-      System.out.println("destinatario agregado correctamente.");
       return true;
     }
     return false;
@@ -213,8 +212,10 @@ public class Cliente implements Serializable{
   }
   public boolean borrarDestinatario(Cliente borrado){
     if(obtenerClienteAgenda(borrado.getId())!= null){ 
-      agendaDestinatarios.remove(borrado);
-      System.out.println("destinatario borrado correctamente.");
+      for(int i = 0; i<agendaDestinatarios.size(); i++){
+        if(agendaDestinatarios.get(i).getId() == borrado.getId())
+          agendaDestinatarios.remove(i);
+      }
       return true;
     }
     return false;
