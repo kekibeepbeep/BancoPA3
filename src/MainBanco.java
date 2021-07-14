@@ -367,6 +367,17 @@ class MainBanco {
     return false;
     
   }
+
+  public void agregarAgenda(Cliente cliente, int idAdd){
+    Cliente clieAux = sb.obtenerCliente(idAdd); //cliente a agregar a la agenda destino
+
+    if(sb.existeCliente(cliente) && sb.existeCliente(clieAux)){ //verifica que ambos cliente existan
+      /*Agrega clieAux2 a agendaDestinatarios de clieAux que se encuentra en array
+      clientes dentro del simulador bancario */
+      sb.clientes.get(sb.getPosCliente(cliente)).agregaDestinatario(clieAux);
+    }
+    sb.seriar();
+  }
   public boolean borrarCtaCte(int cedula, int id){
 
     if (sb.esCliente(cedula) && sb.borrarCuenta(cedula, id, CtaCte.class)) {

@@ -1,6 +1,9 @@
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.beans.Observable;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -11,8 +14,9 @@ import javafx.scene.control.TextField;
 public class VerDestinatarioController implements Initializable {
 
     @FXML private TextField idDestino;
-    @FXML private TableView<Cuenta> tableDestinos;
-    @FXML private TableColumn 
+    @FXML private TableView<Cliente> tableDestinos;
+    @FXML private TableColumn<Cliente, String> nombres;
+    @FXML private TableColumn<Cliente, Integer> id;
 
     private MainBanco banco;
 
@@ -23,7 +27,8 @@ public class VerDestinatarioController implements Initializable {
         //handle boton de borrado
     }
     @FXML private void handleAgregar(ActionEvent event){
-        //handle boton agregar
+        banco.agregarAgenda(cliente, Integer.parseInt(idDestino.getText().trim()));
+        setTableContent();
     }
 
     @Override
@@ -33,7 +38,8 @@ public class VerDestinatarioController implements Initializable {
         this.banco = banco;
     }
     public void setTableContent(){
-        
+        ObservableList<Cliente> contactos = FXCollections.observableArrayList(cliente.getAgenda());
+        tableDestinos.setItems(contactos);
     }
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
