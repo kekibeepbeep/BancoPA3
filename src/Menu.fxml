@@ -60,13 +60,13 @@
                </image>
             </ImageView>
             <Label layoutX="37.0" layoutY="192.0" text="Bienvenido " textFill="#eeeeee" />
-            <Label fx:id="nombre" layoutX="93.0" layoutY="249.0" prefHeight="17.0" prefWidth="95.0" textFill="#eeeeee" />
+            <Label fx:id="nombre" layoutX="104.0" layoutY="192.0" prefHeight="17.0" prefWidth="48.0" textFill="#eeeeee" />
             <Label layoutX="46.0" layoutY="209.0" text="A tu sucursal virtual" textFill="#eeeeee" />
             <Button fx:id="cerrar" layoutX="39.0" layoutY="306.0" mnemonicParsing="false" onAction="#handleCerrar" prefHeight="25.0" prefWidth="129.0" styleClass="backButton" stylesheets="@Styles.css" text="Cerrar Sesión" textFill="#eeeeee">
                <effect>
                   <Reflection fraction="0.47" topOpacity="0.36" />
                </effect></Button>
-            <ImageView fitHeight="206.0" fitWidth="171.0" layoutX="15.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="206.0" fitWidth="171.0" layoutX="18.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@img/mascota" />
                </image>
