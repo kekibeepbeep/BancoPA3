@@ -15,6 +15,7 @@ public class TransferirDestinatarioController implements Initializable {
     @FXML private TextField monto;
     @FXML private ComboBox<Cliente> destinatarios;
     @FXML private ComboBox<Cuenta> cuentas;
+    @FXML private ComboBox<Cuenta> cuentasLocales;
 
     @FXML private void handleTransferir(ActionEvent event) {
         //manipular el boton para hacer efectiva la transferencia
