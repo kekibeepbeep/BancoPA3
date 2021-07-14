@@ -27,7 +27,7 @@ public class MenuController implements Initializable {
 
     private Cliente cliente;
 
-    @FXML private void handleCerrar(ActionEvent event) {
+    @FXML protected void handleCerrar(ActionEvent event) {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Logging.fxml"));
 
         try {
@@ -54,7 +54,7 @@ public class MenuController implements Initializable {
 
     }
     @FXML private void handleCtaView(ActionEvent event) throws IOException {
-        banco.sb.rescatar();
+        //banco.sb.rescatar();
         ArrayList<Cuenta> cuentas = banco.getCtas(cliente);
         if(!cuentas.isEmpty()){
             try {
@@ -63,6 +63,7 @@ public class MenuController implements Initializable {
                 CtaViewController controller = loader.getController();
                 controller.setBanco(banco);
                 controller.setCliente(cliente);
+                controller.setBox(cuentas);
                 menuPane.getChildren().setAll(node);
             } catch (IOException e) {
                 JOptionPane.showMessageDialog(null, "ERROR: 006\n"+e.getCause());

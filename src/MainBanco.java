@@ -375,7 +375,7 @@ class MainBanco {
     }
     return false;
   }
-  public boolean borrarCtaDeAhorro(int cedula, double interesAhorro, int id){
+  public boolean borrarCtaDeAhorro(int cedula, int id){
     if (sb.esCliente(cedula) && sb.borrarCuenta(cedula, id, CtaAhorro.class)) {
       sb.seriar();
       return true;
@@ -426,7 +426,6 @@ class MainBanco {
   }
   public ArrayList<Cuenta> getCtas(Cliente cliente) throws IOException{
     sb.rescatar();
-    System.out.println(cliente);
     ArrayList<Cuenta> cuentas = new ArrayList<Cuenta>();
     for (Cuenta cuenta : cliente.cuentas){
       if(cuenta.getClass().equals(CtaAhorro.class)){
