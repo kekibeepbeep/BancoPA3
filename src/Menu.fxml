@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="720.0" styleClass="backMenu" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MenuController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="720.0" styleClass="backMenu" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MenuController">
    <children>
       <Pane layoutX="14.0" layoutY="12.0" prefHeight="374.0" prefWidth="487.0">
          <children>
@@ -52,25 +52,25 @@
             <AnchorPane fx:id="menuPane" layoutY="27.0" prefHeight="347.0" prefWidth="487.0" />
          </children>
       </Pane>
-      <Pane layoutX="515.0" layoutY="13.0" prefHeight="374.0" prefWidth="191.0">
+      <Pane layoutX="514.0" layoutY="12.0" prefHeight="374.0" prefWidth="191.0">
          <children>
-            <ImageView fitHeight="64.0" fitWidth="235.0" layoutX="-22.0" layoutY="168.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="37.0" fitWidth="166.0" layoutX="25.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@img/keantp" />
                </image>
             </ImageView>
-            <ImageView fitHeight="241.0" fitWidth="236.0" layoutX="-14.0" layoutY="-45.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@img/mascota" />
-               </image>
-            </ImageView>
-            <Label layoutX="32.0" layoutY="249.0" text="Bienvenido " textFill="#eeeeee" />
+            <Label layoutX="37.0" layoutY="192.0" text="Bienvenido " textFill="#eeeeee" />
             <Label fx:id="nombre" layoutX="93.0" layoutY="249.0" prefHeight="17.0" prefWidth="95.0" textFill="#eeeeee" />
-            <Label layoutX="41.0" layoutY="266.0" text="A tu sucursal virtual" textFill="#eeeeee" />
+            <Label layoutX="46.0" layoutY="209.0" text="A tu sucursal virtual" textFill="#eeeeee" />
             <Button fx:id="cerrar" layoutX="39.0" layoutY="306.0" mnemonicParsing="false" onAction="#handleCerrar" prefHeight="25.0" prefWidth="129.0" styleClass="backButton" stylesheets="@Styles.css" text="Cerrar Sesión" textFill="#eeeeee">
                <effect>
                   <Reflection fraction="0.47" topOpacity="0.36" />
                </effect></Button>
+            <ImageView fitHeight="206.0" fitWidth="171.0" layoutX="15.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/mascota" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
    </children>
