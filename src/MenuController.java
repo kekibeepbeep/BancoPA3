@@ -136,12 +136,12 @@ public class MenuController implements Initializable {
     }
     @FXML private void handleDestinatario(ActionEvent event){
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("TransferirCta.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("TransferirDestinatario.fxml"));
             Node node = loader.load();
-            TransferirCtaController controller = loader.getController();
+            TransferirDestinatarioController controller = loader.getController();
             controller.setBanco(banco);
             controller.setCliente(cliente);
-            controller.setCuentas(banco.getCtas(cliente));
+            controller.setDestinatarios(cliente.getAgenda());
             menuPane.getChildren().setAll(node);
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "ERROR: 005\n"+e.getCause());
