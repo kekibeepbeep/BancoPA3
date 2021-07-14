@@ -1,4 +1,5 @@
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -12,12 +13,21 @@ public class TransferirDestinatarioController implements Initializable {
     private Cliente cliente;
 
     @FXML private TextField monto;
-    @FXML private ComboBox destinatarios;
+    @FXML private ComboBox<Cliente> destinatarios;
+    @FXML private ComboBox<Cuenta> cuentas;
 
     @FXML private void handleTransferir(ActionEvent event) {
         //manipular el boton para hacer efectiva la transferencia
     }
+    @FXML private void setCuentasDestino(ActionEvent event) {
+        cuentas.getItems().removeAll(cuentas.getItems());
+        cuentas.getItems().addAll(destinatarios.getValue().cuentas);
+    }
 
+    public void setDestinatarios(ArrayList<Cliente> destinatarios){
+        this.destinatarios.getItems().removeAll(this.destinatarios.getItems());
+        this.destinatarios.getItems().addAll(destinatarios);
+    }
     public void setBanco(MainBanco banco) {
         this.banco = banco;
     }

@@ -38,7 +38,7 @@ public class LoggingController implements Initializable {
                 controller.setCliente(banco.getClienteMain());
 
                 stage.initModality(Modality.WINDOW_MODAL);
-                stage.setTitle("Bank");
+                stage.setTitle("Keant Bank");
                 stage.getIcons().add(new Image(getClass().getResourceAsStream("img/icon")));
                 stage.setResizable(false);
                 stage.setScene(scene);
@@ -67,7 +67,7 @@ public class LoggingController implements Initializable {
             controller.setBanco(banco);
 
             stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setTitle("Bank");
+            stage.setTitle("Keantp Bank");
             stage.getIcons().add(new Image(getClass().getResourceAsStream("img/icon")));
             stage.setResizable(false);
             stage.setScene(scene);
