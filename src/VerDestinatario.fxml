@@ -15,7 +15,7 @@
           <TableColumn fx:id="id" minWidth="0.0" prefWidth="110.0" text="ID" />
         </columns>
       </TableView>
-      <TextField fx:id="idDestino" layoutX="14.0" layoutY="300.0" prefHeight="36.0" prefWidth="243.0" promptText="Introduce ID" styleClass="backButton2" stylesheets="@Styles.css" />
+      <TextField fx:id="idDestino" layoutX="14.0" layoutY="300.0" onAction="#handleAgregar" prefHeight="36.0" prefWidth="243.0" promptText="Introduce ID" styleClass="backButton2" stylesheets="@Styles.css" />
       <Button fx:id="borrar" layoutX="415.0" layoutY="300.0" mnemonicParsing="false" onAction="#handleBorrar" prefHeight="36.0" prefWidth="63.0" styleClass="backButton" stylesheets="@Styles.css" text="Borrar" textFill="#eeeeee">
          <effect>
             <Reflection fraction="0.47" topOpacity="0.36" />

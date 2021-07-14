@@ -212,7 +212,7 @@ public class Cliente implements Serializable{
 
   }
   public boolean borrarDestinatario(Cliente borrado){
-    if(obtenerClienteAgenda(borrado.getId())!= null){ //si el cliente a agregar no existe en la agenda se agrega ella.
+    if(obtenerClienteAgenda(borrado.getId())!= null){ 
       agendaDestinatarios.remove(borrado);
       System.out.println("destinatario borrado correctamente.");
       return true;
