@@ -107,6 +107,33 @@ public class MenuController implements Initializable {
             }
         }
     }
+    @FXML private void handleCdtView(ActionEvent event) throws IOException{
+        ArrayList<Cuenta> cuentas = banco.getCdts(cliente);
+        if(!cuentas.isEmpty()){
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("CdtView.fxml"));
+                Node node = loader.load();
+                CdtViewController controller = loader.getController();
+                controller.setBanco(banco);
+                controller.setCliente(cliente);
+                controller.setBox(cuentas);
+                menuPane.getChildren().setAll(node);
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(null, "ERROR: 007\n"+e.getCause());
+            }
+        }else{
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("CdtViewNoCdt.fxml"));
+                Node node = loader.load();
+                CdtViewNoCdtController controller = loader.getController();
+                controller.setBanco(banco);
+                controller.setCliente(cliente);
+                menuPane.getChildren().setAll(node);
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(null, "ERROR: 008\n"+e.getCause());
+            }
+        }
+    }
     @FXML private void handleCtaT(ActionEvent event){
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("TransferirCta.fxml"));
