@@ -19,7 +19,7 @@
         },
         {
             "type": "java",
-            "name": "Launch BancoPA3",
+            "name": "Launch BancoPA3 Prodiegus",
             "request": "launch",
             "mainClass": "BancoPA3",
             "projectName": "BancoPA3_a480520"
