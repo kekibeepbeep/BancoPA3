@@ -1,11 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CtcViewNoCtcController">
-    
+<AnchorPane id="AnchorPane" prefHeight="347.0" prefWidth="487.0" styleClass="backMenu" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CtaViewNoCtaController">
+   <children>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="24.0" layoutY="87.0" prefHeight="34.0" prefWidth="437.0" text="No Posees una Cuenta Corriente" textAlignment="CENTER" textFill="#eeeeee">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="126.0" layoutY="129.0" text="¿Desea Agregar Una?" textFill="#eeeeee">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Button fx:id="ok" layoutX="290.0" layoutY="209.0" mnemonicParsing="false" onAction="#handleOk" prefHeight="42.0" prefWidth="171.0" styleClass="backButton" text="ok" textFill="#eeeeee">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Button>
+      <Button fx:id="cancel" layoutX="34.0" layoutY="209.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="42.0" prefWidth="171.0" styleClass="backButton" stylesheets="@Styles.css" text="Cancel" textFill="#eeeeee">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Button>
+   </children>
 </AnchorPane>
