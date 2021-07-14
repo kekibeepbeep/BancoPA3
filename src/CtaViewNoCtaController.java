@@ -1,6 +1,8 @@
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javax.swing.JOptionPane;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -21,6 +23,7 @@ public class CtaViewNoCtaController implements Initializable{
     }
     @FXML private void handleOk(ActionEvent event){
         banco.agregarCtaAhorro(cliente.getId(), Float.parseFloat(interes.getText().trim()));
+        JOptionPane.showMessageDialog(null, "Para Validar Su Identidad\nCierre y abra sesion por favor\nDe lo contrario no se mostraran los cambios");
         handleCancel(event);
     }
 
