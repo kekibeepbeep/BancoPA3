@@ -7,21 +7,21 @@
 <?import javafx.scene.effect.Reflection?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="347.0" prefWidth="487.0" styleClass="backMenu" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="VerDestinatarioController">
+<AnchorPane id="AnchorPane" prefHeight="347.0" prefWidth="487.0" styleClass="backMenu" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="VerDestinatarioController">
    <children>
-      <TableView layoutX="10.0" layoutY="9.0" prefHeight="282.0" prefWidth="468.0" styleClass="backBar" stylesheets="@Styles.css">
+      <TableView fx:id="tableDestinos" layoutX="10.0" layoutY="9.0" prefHeight="282.0" prefWidth="468.0" styleClass="backBar" stylesheets="@Styles.css">
         <columns>
-          <TableColumn prefWidth="357.0" text="Destinatario" />
-          <TableColumn minWidth="0.0" prefWidth="110.0" text="ID" />
+          <TableColumn fx:id="nombres" prefWidth="357.0" text="Destinatario" />
+          <TableColumn fx:id="id" minWidth="0.0" prefWidth="110.0" text="ID" />
         </columns>
       </TableView>
-      <TextField layoutX="28.0" layoutY="300.0" prefHeight="36.0" prefWidth="243.0" styleClass="backBar" stylesheets="@Styles.css" text="Introduce ID" />
+      <TextField fx:id="idDestino" layoutX="14.0" layoutY="300.0" prefHeight="36.0" prefWidth="243.0" styleClass="backButton2" stylesheets="@Styles.css" text="Introduce ID" />
       <Button fx:id="borrar" layoutX="415.0" layoutY="300.0" mnemonicParsing="false" onAction="#handleBorrar" prefHeight="36.0" prefWidth="63.0" styleClass="backButton" stylesheets="@Styles.css" text="Borrar" textFill="#eeeeee">
          <effect>
             <Reflection fraction="0.47" topOpacity="0.36" />
          </effect>
       </Button>
-      <Button fx:id="Agregar" layoutX="275.0" layoutY="300.0" mnemonicParsing="false" onAction="#handleAgregar" prefHeight="36.0" prefWidth="76.0" styleClass="backButton" stylesheets="@Styles.css" text="Agregar" textFill="#eeeeee">
+      <Button fx:id="Agregar" layoutX="270.0" layoutY="300.0" mnemonicParsing="false" onAction="#handleAgregar" prefHeight="36.0" prefWidth="76.0" styleClass="backButton" stylesheets="@Styles.css" text="Agregar" textFill="#eeeeee">
          <effect>
             <Reflection fraction="0.47" topOpacity="0.36" />
          </effect>

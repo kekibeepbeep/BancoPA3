@@ -145,6 +145,20 @@ public class MenuController implements Initializable {
             JOptionPane.showMessageDialog(null, "ERROR: 005\n"+e.getCause());
         } 
     }
+    @FXML private void handleVerDestinatario(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("VerDestinatario.fxml"));
+            Node node = loader.load();
+            VerDestinatarioController controller = loader.getController();
+            controller.setBanco(banco);
+            controller.setCliente(cliente);
+            controller.setTableContent();
+            menuPane.getChildren().setAll(node);
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "ERROR: 010\n"+e.getCause());
+        }
+        
+    }
     public void setBanco(MainBanco banco){
         this.banco = banco;
     }
