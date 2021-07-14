@@ -18,13 +18,13 @@
          <children>
             <MenuBar fx:id="menu" layoutY="2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="487.0" styleClass="backButton" stylesheets="@Styles.css">
               <menus>
-                <Menu mnemonicParsing="false" text="Transferir">
+                <Menu mnemonicParsing="false" text="Transferir/Girar">
                      <items>
-                        <MenuItem mnemonicParsing="false" text="Por Mi Agenda Destinatarios" />
-                        <Menu mnemonicParsing="false" text="Entre Mis Productos">
+                        <MenuItem mnemonicParsing="false" onAction="#handleDestinatario" onMenuValidation="#handleDestinatario" text="Por Mi Agenda Destinatarios" />
+                        <Menu mnemonicParsing="false" text="Mis Productos">
                           <items>
+                            <MenuItem mnemonicParsing="false" onAction="#handleCtcT" onMenuValidation="#handleCtcT" text="Cuenta Corriente" />
                               <MenuItem mnemonicParsing="false" onAction="#handleCtaT" onMenuValidation="#handleCtaT" text="Cuenta De Ahorro" />
-                            <MenuItem mnemonicParsing="false" text="Cuenta Corriente" />
                           </items>
                         </Menu>
                      </items>
@@ -46,7 +46,7 @@
                   <Insets />
                </opaqueInsets>
                <padding>
-                  <Insets left="116.0" />
+                  <Insets left="102.0" />
                </padding>
             </MenuBar>
             <AnchorPane fx:id="menuPane" layoutY="27.0" prefHeight="347.0" prefWidth="487.0" />
@@ -54,18 +54,18 @@
       </Pane>
       <Pane layoutX="515.0" layoutY="13.0" prefHeight="374.0" prefWidth="191.0">
          <children>
-            <ImageView fitHeight="49.0" fitWidth="193.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="64.0" fitWidth="235.0" layoutX="-22.0" layoutY="168.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@img/imagen.png" />
+                  <Image url="@img/keantp" />
                </image>
             </ImageView>
-            <ImageView fitHeight="241.0" fitWidth="236.0" layoutX="-21.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="241.0" fitWidth="236.0" layoutX="-14.0" layoutY="-45.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@img/mascota" />
                </image>
             </ImageView>
             <Label layoutX="32.0" layoutY="249.0" text="Bienvenido " textFill="#eeeeee" />
-            <Label fx:id="nombre" layoutX="93.0" layoutY="251.0" prefHeight="17.0" prefWidth="95.0" textFill="#eeeeee" />
+            <Label fx:id="nombre" layoutX="93.0" layoutY="249.0" prefHeight="17.0" prefWidth="95.0" textFill="#eeeeee" />
             <Label layoutX="41.0" layoutY="266.0" text="A tu sucursal virtual" textFill="#eeeeee" />
             <Button fx:id="cerrar" layoutX="39.0" layoutY="306.0" mnemonicParsing="false" onAction="#handleCerrar" prefHeight="25.0" prefWidth="129.0" styleClass="backButton" stylesheets="@Styles.css" text="Cerrar Sesión" textFill="#eeeeee">
                <effect>

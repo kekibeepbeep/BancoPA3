@@ -325,6 +325,10 @@ class MainBanco {
     return false;
 
   }
+  public void agregarCliente(Cliente cliente){
+      sb.clientes.add(cliente);
+      sb.seriar();
+  }
   public boolean verificaClienteLogin(int cedula, String nombre){
     if (sb.esCliente(cedula)) {
       if (sb.verificaNombre(cedula, nombre)){
@@ -369,12 +373,10 @@ class MainBanco {
   }
 
   public void agregarAgenda(Cliente cliente, int idAdd){
-    Cliente clieAux = sb.obtenerCliente(idAdd); //cliente a agregar a la agenda destino
-
-    if(sb.existeCliente(cliente) && sb.existeCliente(clieAux)){ //verifica que ambos cliente existan
-      /*Agrega clieAux2 a agendaDestinatarios de clieAux que se encuentra en array
-      clientes dentro del simulador bancario */
-      cliente.agregaDestinatario(clieAux);
+    for (Cliente aux : sb.clientes) {
+      if(aux.getId() == idAdd){
+        cliente.agregaDestinatario(aux);
+      }
     }
     sb.seriar();
   }
@@ -434,6 +436,17 @@ class MainBanco {
       return true;
     }
     return false;
+  }
+  public Cliente borrarDestinatario(Cliente cliente, int removeId) {
+    for (Cliente aux : sb.clientes) {
+      if(aux.getId() == removeId){
+        System.out.println("Voy a borrar a: "+aux);
+        cliente.borrarDestinatario(aux);
+      }
+    }
+    System.out.println(cliente.agendaDestinatarios);
+    sb.seriar();
+    return cliente;
   }
   public ArrayList<Cuenta> getCtas(Cliente cliente) throws IOException{
     sb.rescatar();

@@ -24,7 +24,8 @@ public class VerDestinatarioController implements Initializable {
 
     
     @FXML private void handleBorrar(ActionEvent event){
-        //handle boton de borrado
+        this.cliente = banco.borrarDestinatario(cliente, Integer.parseInt(idDestino.getText().trim()));
+        setTableContent();
     }
     @FXML private void handleAgregar(ActionEvent event){
         banco.agregarAgenda(cliente, Integer.parseInt(idDestino.getText().trim()));
@@ -39,6 +40,7 @@ public class VerDestinatarioController implements Initializable {
     }
     public void setTableContent(){
         System.out.println(cliente.getAgenda());
+        banco.agregarCliente(cliente);
         ObservableList<Cliente> contactos = FXCollections.observableArrayList(cliente.getAgenda());
         nombres.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         id.setCellValueFactory(new PropertyValueFactory<>("id"));
