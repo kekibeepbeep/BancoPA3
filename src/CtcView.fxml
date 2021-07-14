@@ -3,15 +3,13 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="347.0" prefWidth="487.0" styleClass="backMenu" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CtaViewController">
+<AnchorPane id="AnchorPane" prefHeight="347.0" prefWidth="487.0" styleClass="backMenu" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CtcViewController">
    <children>
-      <ComboBox fx:id="elegir" layoutX="34.0" layoutY="23.0" onAction="#handleMostrar" prefHeight="25.0" prefWidth="245.0" promptText="Elija Cuenta" styleClass="backButton" stylesheets="@Styles.css" />
-      <Button fx:id="mostrar" layoutX="331.0" layoutY="23.0" mnemonicParsing="false" onAction="#handleMostrar" styleClass="backButton" stylesheets="@Styles.css" text="Mostrar" textFill="#eeeeee" />
+      <ComboBox fx:id="elegir" layoutX="34.0" layoutY="23.0" onAction="#handleMostrar" prefHeight="25.0" prefWidth="404.0" promptText="Elija Cuenta" styleClass="backButton" stylesheets="@Styles.css" />
       <Label layoutX="124.0" layoutY="72.0" text="Datos De La Cuenta Corriente" textFill="#eeeeee">
          <font>
             <Font name="System Bold" size="19.0" />
@@ -23,8 +21,7 @@
       <Line endX="356.0" fill="#548ca8" layoutX="115.0" layoutY="115.0" opacity="0.25" startX="-100.0" stroke="#548ca8" />
       <Line endX="356.0" fill="#548ca8" layoutX="115.0" layoutY="233.0" opacity="0.25" startX="-100.0" stroke="#548ca8" />
       <Button fx:id="eliminar" layoutX="340.0" layoutY="257.0" mnemonicParsing="false" onAction="#handleEliminar" styleClass="backButton" stylesheets="@Styles.css" text="Eliminar Cuenta" textFill="#eeeeee" />
-      <TextField layoutX="14.0" layoutY="257.0" prefHeight="25.0" prefWidth="70.0" promptText="Interes" styleClass="backButton2" stylesheets="@Styles.css" />
-      <Button fx:id="agregar" layoutX="106.0" layoutY="257.0" mnemonicParsing="false" onAction="#handleAgregar" styleClass="backButton" stylesheets="@Styles.css" text="Agregar Cuenta" textFill="#eeeeee" />
+      <Button fx:id="agregar" layoutX="66.0" layoutY="257.0" mnemonicParsing="false" onAction="#handleAgregar" styleClass="backButton" stylesheets="@Styles.css" text="Agregar Cuenta" textFill="#eeeeee" />
       <Label fx:id="id" layoutX="216.0" layoutY="142.0" prefHeight="17.0" prefWidth="245.0" textFill="#eeeeee" />
       <Label fx:id="saldo" layoutX="216.0" layoutY="174.0" prefHeight="17.0" prefWidth="245.0" textFill="#eeeeee" />
       <Label fx:id="interes" layoutX="216.0" layoutY="204.0" prefHeight="17.0" prefWidth="245.0" textFill="#eeeeee" />

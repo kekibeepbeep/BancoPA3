@@ -1,26 +1,42 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.fxml.Initializable;
 
-/**
- * FXML Controller class
- *
- * @author diego
- */
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+
 public class VerDestinatarioController implements Initializable {
 
-    /**
-     * Initializes the controller class.
-     */
+    @FXML private TextField idDestino;
+    @FXML private TableView<Cuenta> tableDestinos;
+    @FXML private TableColumn 
+
+    private MainBanco banco;
+
+    private Cliente cliente;
+
+    
+    @FXML private void handleBorrar(ActionEvent event){
+        //handle boton de borrado
+    }
+    @FXML private void handleAgregar(ActionEvent event){
+        //handle boton agregar
+    }
+
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+    public void initialize(URL url, ResourceBundle rb) {}
+
+    public void setBanco(MainBanco banco) {
+        this.banco = banco;
+    }
+    public void setTableContent(){
+        
+    }
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }    
     
 }
