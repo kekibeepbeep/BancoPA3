@@ -417,6 +417,11 @@ class MainBanco {
     return false;
     
   }
+  public void depositoTerceros(Cuenta owner, Cuenta destiny, int monto) {
+    destiny.depositar(monto);
+    owner.girar(monto);
+    sb.seriar();
+  }
   public boolean girarMain(int cedula, int monto, int id, int tipo){
     Class<? extends Cuenta> clase = (tipo==1)? CtaCte.class : ((tipo==2)? CtaAhorro.class:null);
     if (sb.esCliente(cedula) && sb.giro(cedula, monto, id, clase)) {

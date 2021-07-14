@@ -142,6 +142,7 @@ public class MenuController implements Initializable {
             controller.setBanco(banco);
             controller.setCliente(cliente);
             controller.setDestinatarios(cliente.getAgenda());
+            controller.setCuentasLocales(cliente.cuentas);
             menuPane.getChildren().setAll(node);
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "ERROR: 005\n"+e.getCause());
