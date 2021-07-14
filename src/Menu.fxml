@@ -38,7 +38,7 @@
                 </Menu>
                 <Menu mnemonicParsing="false" text="Mis Destinatarios">
                   <items>
-                        <MenuItem mnemonicParsing="false" text="Ver" />
+                        <MenuItem fx:id="verDestinario" mnemonicParsing="false" onAction="#handleVerDestinatario" onMenuValidation="#handleVerDestinatario" text="Ver" />
                   </items>
                 </Menu>
               </menus>
