@@ -18,9 +18,6 @@ public class CDT extends Cuenta {
       cta.depositar(this.saldo);
       this.saldo = 0;
     }
-    else {
-      System.out.println("Error. La cuenta " + cta + " es de tipo " + cta.getClass() + ". Solo se permite traspasar fondos a una Cuenta Corriente");
-    }
   }
 
   public void calcInteres() {
@@ -41,7 +38,6 @@ public class CDT extends Cuenta {
       }
       return false;
     }
-    System.out.println("Ya se hizo el primer deposito");
     return false;
   }
 

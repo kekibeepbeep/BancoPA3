@@ -39,7 +39,6 @@ public class VerDestinatarioController implements Initializable {
         this.banco = banco;
     }
     public void setTableContent(){
-        System.out.println(cliente.getAgenda());
         banco.agregarCliente(cliente);
         ObservableList<Cliente> contactos = FXCollections.observableArrayList(cliente.getAgenda());
         nombres.setCellValueFactory(new PropertyValueFactory<>("nombre"));

@@ -81,7 +81,6 @@ public class SimuladorBanco {
       return clie.agregarCtaCte();
     }
     else {
-      System.out.println("Cliente " + cedula + " no existe. Imposible agregar Cta Cte");
       return false;
     }
   }
@@ -92,14 +91,12 @@ public class SimuladorBanco {
       return clie.agregarCtaAhorro(interes);
     }
     else {
-      System.out.println("Cliente " + cedula + " no existe. Imposible agregar Cta Ahorro");
       return false;
     }
   }
 
   public boolean agregarCDT(int cedula, int monto, double interes) {
     if (monto < 0) {
-      System.out.println("monto " + monto + " negativo. Imposible de crear CDT");
       return false;
     }
     Cliente clie = obtenerCliente(cedula);
@@ -107,7 +104,6 @@ public class SimuladorBanco {
       return clie.agregarCDT(monto, interes);
     }
     else {
-      System.out.println("Cliente " + cedula + " no existe. Imposible de crear CDT");
       return false;
     }
   }
@@ -165,19 +161,12 @@ public class SimuladorBanco {
     }
   }
   public boolean depositar(int idOrigen, int idDestino, int nmroCtadDestino, int nmroCtaOrigen, int dep) {
-    //Scanner in = new Scanner(System.in);
     Cliente cOrigen = obtenerCliente(idOrigen);
     Cliente cDestino = obtenerCliente(idDestino);
     if(cOrigen == null)return false;
-    if(cDestino==null)return false;
+    if(cDestino == null)return false;
     for (Cliente cliente : cOrigen.getAgenda()) {
         if(cliente.getId() == idDestino){
-          //System.out.println("Eliga cuenta del destinatario: \n");
-          for (Cuenta cuenta : cliente.cuentas)System.out.println(cuenta.getId());
-          //System.out.print("nmro cta: ");
-          //System.out.println("Eliga cuenta origen: \n");
-          for(Cuenta cuenta : obtenerCliente(idOrigen).cuentas)System.out.println(cuenta);
-          //System.out.print("nmro cta: ");
           for (Cuenta cuentaD : cliente.cuentas) {
             for(Cuenta cuentaO : obtenerCliente(idOrigen).cuentas){
               if(cuentaD.getId()==nmroCtadDestino && cuentaO.getId()==nmroCtaOrigen){
@@ -190,6 +179,7 @@ public class SimuladorBanco {
           }
         } 
     }
+    System.out.println("sali del ciclo sin exito");
     return false;
   }
   public boolean existeCliente(Cliente clienteTest){ //verifica si existe un cliente
@@ -199,7 +189,6 @@ public class SimuladorBanco {
         return true;
       }   
     }
-    System.out.println("El cliente solicitado no existe.");
     return false;
   }
 
@@ -209,7 +198,6 @@ public class SimuladorBanco {
         return i;
       } 
     }
-    System.out.println("El cliente solicitado no existe.");
     return -1;  //retorna -1 si no lo encuentra
   }
   public boolean setClienteLoggeado(int id){

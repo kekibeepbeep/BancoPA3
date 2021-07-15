@@ -89,7 +89,6 @@ public class Cliente implements Serializable{
   }
 
   public void listarCuentas() {
-    System.out.print("Listando " + cuentas.size() + " cuentas: ");
     Iterator<Cuenta> it = cuentas.iterator();
     while (it.hasNext()) {
       System.out.print(" " + it.next().getId());
@@ -109,14 +108,12 @@ public class Cliente implements Serializable{
   public boolean borrarCuenta(int id, Class clase) {
     int idx = getIdxCta(id);
     if (idx == -1) {
-      System.out.println("Cliente " + this.numCedula + " " + this.nombre + " no tiene cuenta  " + id + ", operacion cancelada");
       return false; // no encontro la cuenta
     }
     Cuenta cta = cuentas.get(idx); // tenemos la cta
 
     // chequeamos que sea un tipo de cuenta que se puede borrar
     if ( ((cta instanceof CtaCte) || (cta instanceof CtaAhorro)) == false ) {
-      System.out.println("la cuenta " + id + " no pertenece a las cuentas que se pueden borrar, operacion cancelada");
       return false;
     }
 
@@ -126,7 +123,6 @@ public class Cliente implements Serializable{
       return (cuentas.remove(idx) != null)?true:false;
     }
     else {
-      System.out.println("la cuenta " + id + " no corresponde con el tipo " + clase.getSimpleName() + ", operacion cancelada");
       return false;
     }    
   }
@@ -134,14 +130,12 @@ public class Cliente implements Serializable{
   public boolean cerrarCDT(int id, int idCtaCte) {
     int idx = getIdxCta(idCtaCte); // buscamos cta cte de destino
     if (idx == -1) {
-      System.out.println("Cliente " + this.numCedula + " " + this.nombre + " no tiene cuenta corriente " + idCtaCte + ", operacion cancelada");
       return false;
     }
     Cuenta ctaDest = cuentas.get(idx); // tenemos la cta de destino
 
     idx = getIdxCta(id); // buscamos CDT a cerrar
     if (idx == -1) {
-      System.out.println("Cliente " + this.numCedula + " " + this.nombre + " no tiene CDT " + id + ", operacion cancelada");
       return false;
     }
     Cuenta cdt = cuentas.get(idx); // tenemos el certif a cerrar
@@ -154,13 +148,11 @@ public class Cliente implements Serializable{
     String nombreClase = clase.getSimpleName();
     if ( ( nombreClase.equals(CtaCte.class.getSimpleName()) ||
            nombreClase.equals(CtaAhorro.class.getSimpleName())) == false ) {
-      System.out.println("Tipo " + nombreClase + " no admite depositos");
       return false;
     }
 
     int idx = getIdxCta(id); // buscamos cta para depositar
     if (idx == -1) {
-      System.out.println("Cliente " + this.numCedula + " " + this.nombre + " no tiene cuenta  " + id + ", operacion cancelada");
       return false; // no encontro la cuenta
     }
 
@@ -172,7 +164,6 @@ public class Cliente implements Serializable{
       return respuesta;
     }
 
-    System.out.println("la cuenta " + id + " no corresponde con el tipo " + clase.getSimpleName() + ", operacion cancelada");
     return false;
   }
 
@@ -180,13 +171,11 @@ public class Cliente implements Serializable{
     String nombreClase = clase.getSimpleName();
     if ( ( nombreClase.equals(CtaCte.class.getSimpleName()) ||
            nombreClase.equals(CtaAhorro.class.getSimpleName())) == false ) {
-      System.out.println("Tipo " + nombreClase + " no admite giros");
       return false;
     }
 
     int idx = getIdxCta(id); // buscamos cta para girar
     if (idx == -1) {
-      System.out.println("Cliente " + this.numCedula + " " + this.nombre + " no tiene cuenta  " + id + ", operacion cancelada");
       return false; // no encontro la cuenta
     }
 
@@ -198,7 +187,6 @@ public class Cliente implements Serializable{
       return true;
     }
 
-    System.out.println("la cuenta " + id + " no corresponde con el tipo " + clase.getSimpleName() + ", operacion cancelada");
     return false;
   }
 
