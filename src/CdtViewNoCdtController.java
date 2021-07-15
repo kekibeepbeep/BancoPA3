@@ -9,20 +9,20 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.TextField;
 
-
-public class CtaViewNoCtaController implements Initializable{
+public class CdtViewNoCdtController implements Initializable {
     private MainBanco banco;
 
     private Cliente cliente;
-
+    
     @FXML private TextField interes;
+    @FXML private TextField saldo;
 
     @FXML private void handleCancel(ActionEvent event) {
         Node source = (Node) event.getSource();
         source.getParent().setVisible(false);
     }
     @FXML private void handleOk(ActionEvent event){
-        banco.agregarCtaAhorro(cliente.getId(), Float.parseFloat(interes.getText().trim()));
+        banco.agregarCDT(cliente.getId(), Integer.parseInt(saldo.getText().trim()), Float.parseFloat(interes.getText().trim()));
         JOptionPane.showMessageDialog(null, "Para Validar Su Identidad\nCierre y abra sesion por favor\nDe lo contrario no se mostraran los cambios");
         handleCancel(event);
     }
@@ -38,6 +38,5 @@ public class CtaViewNoCtaController implements Initializable{
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
-    }    
-    
+    }   
 }

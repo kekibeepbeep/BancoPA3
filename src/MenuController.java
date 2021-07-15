@@ -23,11 +23,11 @@ public class MenuController implements Initializable {
     @FXML private Label nombre;
     @FXML private AnchorPane menuPane;
 
-    protected MainBanco banco;
+    private MainBanco banco;
 
     private Cliente cliente;
 
-    @FXML private void handleCerrar(ActionEvent event) {
+    @FXML protected void handleCerrar(ActionEvent event) {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Logging.fxml"));
 
         try {
@@ -53,43 +53,140 @@ public class MenuController implements Initializable {
         }
 
     }
-    @FXML private void handleCtaView(ActionEvent event) {
+    @FXML private void handleCtaView(ActionEvent event) throws IOException {
         ArrayList<Cuenta> cuentas = banco.getCtas(cliente);
         if(!cuentas.isEmpty()){
-            System.out.println("Tiene Cuentas de Ahorro");
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("CtaView.fxml"));
+                Node node = loader.load();
+                CtaViewController controller = loader.getController();
+                controller.setBanco(banco);
+                controller.setCliente(cliente);
+                controller.setBox(cuentas);
+                menuPane.getChildren().setAll(node);
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(null, "ERROR: 006\n"+e.getCause());
+            }
         }else{
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("CtaViewNoCta.fxml"));
                 Node node = loader.load();
                 CtaViewNoCtaController controller = loader.getController();
                 controller.setBanco(banco);
+                controller.setCliente(cliente);
                 menuPane.getChildren().setAll(node);
             } catch (IOException e) {
                 JOptionPane.showMessageDialog(null, "ERROR: 004\n"+e.getCause());
             }
         }
     }
-
+    @FXML private void handleCtcView(ActionEvent event) throws IOException{
+        ArrayList<Cuenta> cuentas = banco.getCtcs(cliente);
+        if(!cuentas.isEmpty()){
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("CtcView.fxml"));
+                Node node = loader.load();
+                CtcViewController controller = loader.getController();
+                controller.setBanco(banco);
+                controller.setCliente(cliente);
+                controller.setBox(cuentas);
+                menuPane.getChildren().setAll(node);
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(null, "ERROR: 007\n"+e.getCause());
+            }
+        }else{
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("CtcViewNoCtc.fxml"));
+                Node node = loader.load();
+                CtcViewNoCtcController controller = loader.getController();
+                controller.setBanco(banco);
+                controller.setCliente(cliente);
+                menuPane.getChildren().setAll(node);
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(null, "ERROR: 008\n"+e.getCause());
+            }
+        }
+    }
+    @FXML private void handleCdtView(ActionEvent event) throws IOException{
+        ArrayList<Cuenta> cuentas = banco.getCdts(cliente);
+        if(!cuentas.isEmpty()){
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("CdtView.fxml"));
+                Node node = loader.load();
+                CdtViewController controller = loader.getController();
+                controller.setBanco(banco);
+                controller.setCliente(cliente);
+                controller.setBox(cuentas);
+                menuPane.getChildren().setAll(node);
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(null, "ERROR: 007\n"+e.getCause());
+            }
+        }else{
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("CdtViewNoCdt.fxml"));
+                Node node = loader.load();
+                CdtViewNoCdtController controller = loader.getController();
+                controller.setBanco(banco);
+                controller.setCliente(cliente);
+                menuPane.getChildren().setAll(node);
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(null, "ERROR: 008\n"+e.getCause());
+            }
+        }
+    }
+    @FXML private void handleDestinatario(ActionEvent event){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("TransferirDestinatario.fxml"));
+            Node node = loader.load();
+            TransferirDestinatarioController controller = loader.getController();
+            controller.setBanco(banco);
+            controller.setCliente(cliente);
+            controller.setDestinatarios(cliente.getAgenda());
+            controller.setCuentasLocales(cliente.cuentas);
+            menuPane.getChildren().setAll(node);
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "ERROR: 005\n"+e.getCause());
+        } 
+    }
     @FXML private void handleCtaT(ActionEvent event){
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("TransferirCta.fxml"));
             Node node = loader.load();
             TransferirCtaController controller = loader.getController();
             controller.setBanco(banco);
+            controller.setCliente(cliente);
+            controller.setCuentas(banco.getCtas(cliente));
             menuPane.getChildren().setAll(node);
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "ERROR: 005\n"+e.getCause());
         } 
     }
-
-    protected void setAddCta(){
+    @FXML private void handleCtcT(ActionEvent event){
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("AgregarCta.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("TransferirCtc.fxml"));
             Node node = loader.load();
+            TransferirCtcController controller = loader.getController();
+            controller.setBanco(banco);
+            controller.setCliente(cliente);
+            controller.setCuentas(banco.getCtcs(cliente));
             menuPane.getChildren().setAll(node);
         } catch (IOException e) {
-            JOptionPane.showMessageDialog(null, "ERROR: 006\n"+e.getCause());
+            JOptionPane.showMessageDialog(null, "ERROR: 011\n"+e.getCause());
         } 
+    }
+    @FXML private void handleVerDestinatario(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("VerDestinatario.fxml"));
+            Node node = loader.load();
+            VerDestinatarioController controller = loader.getController();
+            controller.setBanco(banco);
+            controller.setCliente(cliente);
+            controller.setTableContent();
+            menuPane.getChildren().setAll(node);
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "ERROR: 010\n"+e.getCause());
+        }
+        
     }
     public void setBanco(MainBanco banco){
         this.banco = banco;

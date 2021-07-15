@@ -6,9 +6,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="347.0" prefWidth="487.0" styleClass="backMenu" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CtaViewNoCtaController">
+<AnchorPane id="AnchorPane" prefHeight="347.0" prefWidth="487.0" styleClass="backMenu" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CdtViewNoCdtController">
    <children>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="24.0" layoutY="87.0" prefHeight="34.0" prefWidth="437.0" text="No Posees una Cuenta de Ahorro" textAlignment="CENTER" textFill="#eeeeee">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="24.0" layoutY="87.0" prefHeight="34.0" prefWidth="437.0" text="No Posees una Cuenta CDT" textAlignment="CENTER" textFill="#eeeeee">
          <font>
             <Font size="25.0" />
          </font>
@@ -28,7 +28,9 @@
             <Font size="22.0" />
          </font>
       </Button>
-      <TextField fx:id="interes" layoutX="290.0" layoutY="267.0" onAction="#handleOk" prefHeight="25.0" prefWidth="171.0" promptText="0.0" styleClass="backButton2" stylesheets="@Styles.css" />
-      <Label layoutX="184.0" layoutY="271.0" text="Interes De Ahorro: " textFill="#eeeeee" />
+      <TextField fx:id="interes" layoutX="290.0" layoutY="267.0" prefHeight="25.0" prefWidth="171.0" promptText="0.0" styleClass="backButton2" stylesheets="@Styles.css" />
+      <Label layoutX="202.0" layoutY="271.0" text="Interes De CDT: " textFill="#eeeeee" />
+      <Label layoutX="225.0" layoutY="308.0" text="Saldo CDT: " textFill="#eeeeee" />
+      <TextField fx:id="saldo" layoutX="290.0" layoutY="304.0" onAction="#handleOk" prefHeight="25.0" prefWidth="171.0" promptText="0.0" styleClass="backButton2" stylesheets="@Styles.css" />
    </children>
 </AnchorPane>

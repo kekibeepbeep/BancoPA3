@@ -4,13 +4,15 @@ import java.util.ResourceBundle;
 
 import javax.swing.JOptionPane;
 
+import org.junit.FixMethodOrder;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 
-public class TransferirCtaController implements Initializable {
+public class TransferirCtcController implements Initializable {
     private MainBanco banco;
     private Cliente cliente;
 
@@ -19,12 +21,12 @@ public class TransferirCtaController implements Initializable {
 
     @FXML private void handleTransferir(ActionEvent event) {
         Cuenta cuenta = cuentas.getValue();
-        banco.depositarMain(cliente.getId(), Integer.parseInt(monto.getText().trim()), cuenta.getId(), 2);       
+        banco.depositarMain(cliente.getId(), Integer.parseInt(monto.getText().trim()), cuenta.getId(), 1);       
         JOptionPane.showMessageDialog(null, "Para Validar Su Identidad\nCierre y abra sesion por favor\nDe lo contrario no se mostraran los cambios");
     }
     @FXML private void handleGirar(ActionEvent event) {
         Cuenta cuenta = cuentas.getValue();
-        banco.girarMain(cliente.getId(), Integer.parseInt(monto.getText().trim()), cuenta.getId(), 2);       
+        banco.girarMain(cliente.getId(), Integer.parseInt(monto.getText().trim()), cuenta.getId(), 1);       
         JOptionPane.showMessageDialog(null, "Para Validar Su Identidad\nCierre y abra sesion por favor\nDe lo contrario no se mostraran los cambios");
     }
     public void setBanco(MainBanco banco) {
@@ -38,6 +40,6 @@ public class TransferirCtaController implements Initializable {
         this.cuentas.getItems().addAll(cuentas);
     }
     @Override
-    public void initialize(URL url, ResourceBundle rb) {}   
+    public void initialize(URL url, ResourceBundle rb) {}    
     
 }

@@ -1,0 +1,56 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch BancoPA3",
+            "request": "launch",
+            "mainClass": "BancoPA3",
+            "projectName": "BancoPA3_468c149b"
+        },
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Launch BancoPA3 Prodiegus",
+            "request": "launch",
+            "mainClass": "BancoPA3",
+            "projectName": "BancoPA3_a480520"
+        },
+        {
+            "type": "java",
+            "name": "Launch Cliente",
+            "request": "launch",
+            "mainClass": "Cliente",
+            "projectName": "BancoPA3_a480520"
+        },
+        {
+            "type": "java",
+            "name": "Launch CtaCte",
+            "request": "launch",
+            "mainClass": "CtaCte",
+            "projectName": "BancoPA3_a480520"
+        },
+        {
+            "type": "java",
+            "name": "Launch Cuenta",
+            "request": "launch",
+            "mainClass": "Cuenta",
+            "projectName": "BancoPA3_a480520"
+        },
+        {
+            "type": "java",
+            "name": "Launch MainBanco",
+            "request": "launch",
+            "mainClass": "MainBanco",
+            "projectName": "BancoPA3_a480520"
+        }
+    ]
+}
